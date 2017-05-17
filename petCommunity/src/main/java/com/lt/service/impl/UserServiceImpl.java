@@ -22,26 +22,25 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public User selectUserById(Integer uid) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.selectByPrimaryKey(uid);
 	}
 
 	@Override
 	public int insertUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = userDao.insert(user);
+		return i;
 	}
 
 	@Override
 	public int updateUser(User user) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = userDao.updateByPrimaryKeySelective(user);
+		return i;
 	}
 
 	@Override
 	public int deleteUser(Integer uid) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = userDao.deleteByPrimaryKey(uid);
+		return i;
 	}
 
 }
