@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.IFirstReplyDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.FirstReply" >
+    <id column="FirstReplyId" property="firstreplyid" jdbcType="INTEGER" />
+    <result column="FirstReplyContent" property="firstreplycontent" jdbcType="VARCHAR" />
+    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="PostId" property="postid" jdbcType="INTEGER" />
+    <result column="FirstReplyUpdateTime" property="firstreplyupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    FirstReplyId, FirstReplyContent, UserId, PostId, FirstReplyUpdateTime
+  </sql>
+<!--   查询所有的一级回复 -->
+   <select id="selectAllFirstReplies" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from first_reply
+   </select>
+   
+<!--    根据主键查询一级回复 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from first_reply
+    where FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
+  </select>
+  
+ <!--  根据帖子ID查询一级回复 -->
+  <select id="selectAllFirstRepliesByPostId" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from first_reply
+    where PostId = #{postid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from first_reply
+    where FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
+  </delete>
+  
+   <!--  根据帖子ID删除一级回复 -->
+  <delete id="deleteByPostId" parameterType="java.lang.Integer" >
+    delete from first_reply
+     where PostId = #{postid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.lt.pojo.FirstReply" >
+    insert into first_reply (FirstReplyId, FirstReplyContent, 
+      UserId, PostId, FirstReplyUpdateTime
+      )
+    values (#{firstreplyid,jdbcType=INTEGER}, #{firstreplycontent,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=INTEGER}, #{postid,jdbcType=INTEGER}, #{firstreplyupdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.FirstReply" >
+    insert into first_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="firstreplyid != null" >
+        FirstReplyId,
+      </if>
+      <if test="firstreplycontent != null" >
+        FirstReplyContent,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="postid != null" >
+        PostId,
+      </if>
+      <if test="firstreplyupdatetime != null" >
+        FirstReplyUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="firstreplyid != null" >
+        #{firstreplyid,jdbcType=INTEGER},
+      </if>
+      <if test="firstreplycontent != null" >
+        #{firstreplycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="postid != null" >
+        #{postid,jdbcType=INTEGER},
+      </if>
+      <if test="firstreplyupdatetime != null" >
+        #{firstreplyupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.FirstReply" >
+    update first_reply
+    <set >
+      <if test="firstreplycontent != null" >
+        FirstReplyContent = #{firstreplycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null" >
+        UserId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="postid != null" >
+        PostId = #{postid,jdbcType=INTEGER},
+      </if>
+      <if test="firstreplyupdatetime != null" >
+        FirstReplyUpdateTime = #{firstreplyupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.FirstReply" >
+    update first_reply
+    set FirstReplyContent = #{firstreplycontent,jdbcType=VARCHAR},
+      UserId = #{userid,jdbcType=INTEGER},
+      PostId = #{postid,jdbcType=INTEGER},
+      FirstReplyUpdateTime = #{firstreplyupdatetime,jdbcType=TIMESTAMP}
+    where FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
+  </update>
+</mapper>

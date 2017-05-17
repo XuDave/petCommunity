@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.IUserDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.User" >
+    <id column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="UserName" property="username" jdbcType="VARCHAR" />
+    <result column="UserPassword" property="userpassword" jdbcType="VARCHAR" />
+    <result column="UserSex" property="usersex" jdbcType="INTEGER" />
+    <result column="UserAge" property="userage" jdbcType="INTEGER" />
+    <result column="UserPhone" property="userphone" jdbcType="VARCHAR" />
+    <result column="UserAddress" property="useraddress" jdbcType="VARCHAR" />
+    <result column="UserUpdateTime" property="userupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    UserId, UserName, UserPassword, UserSex, UserAge, UserPhone, UserAddress, UserUpdateTime
+  </sql>
+  <select id="selectAllUsers"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where UserId = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where UserId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lt.pojo.User" >
+    insert into user (UserId, UserName, UserPassword, 
+      UserSex, UserAge, UserPhone, 
+      UserAddress, UserUpdateTime)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+      #{usersex,jdbcType=INTEGER}, #{userage,jdbcType=INTEGER}, #{userphone,jdbcType=VARCHAR}, 
+      #{useraddress,jdbcType=VARCHAR}, #{userupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="username != null" >
+        UserName,
+      </if>
+      <if test="userpassword != null" >
+        UserPassword,
+      </if>
+      <if test="usersex != null" >
+        UserSex,
+      </if>
+      <if test="userage != null" >
+        UserAge,
+      </if>
+      <if test="userphone != null" >
+        UserPhone,
+      </if>
+      <if test="useraddress != null" >
+        UserAddress,
+      </if>
+      <if test="userupdatetime != null" >
+        UserUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null" >
+        #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null" >
+        #{usersex,jdbcType=INTEGER},
+      </if>
+      <if test="userage != null" >
+        #{userage,jdbcType=INTEGER},
+      </if>
+      <if test="userphone != null" >
+        #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null" >
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userupdatetime != null" >
+        #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.User" >
+    update user
+    <set >
+      <if test="username != null" >
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpassword != null" >
+        UserPassword = #{userpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null" >
+        UserSex = #{usersex,jdbcType=INTEGER},
+      </if>
+      <if test="userage != null" >
+        UserAge = #{userage,jdbcType=INTEGER},
+      </if>
+      <if test="userphone != null" >
+        UserPhone = #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null" >
+        UserAddress = #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="userupdatetime != null" >
+        UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where UserId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.User" >
+    update user
+    set UserName = #{username,jdbcType=VARCHAR},
+      UserPassword = #{userpassword,jdbcType=VARCHAR},
+      UserSex = #{usersex,jdbcType=INTEGER},
+      UserAge = #{userage,jdbcType=INTEGER},
+      UserPhone = #{userphone,jdbcType=VARCHAR},
+      UserAddress = #{useraddress,jdbcType=VARCHAR},
+      UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP}
+    where UserId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

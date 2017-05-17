@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.IPetTypeDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.PetType" >
+    <id column="PetTypeId" property="pettypeid" jdbcType="INTEGER" />
+    <result column="PetTypeContent" property="pettypecontent" jdbcType="VARCHAR" />
+    <result column="PetTypeName" property="pettypename" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PetTypeId, PetTypeContent, PetTypeName
+  </sql>
+  
+  <select id="selectAllPetTypes" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from pet_type
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pet_type
+    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pet_type
+    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lt.pojo.PetType" >
+    insert into pet_type (PetTypeId, PetTypeContent, PetTypeName
+      )
+    values (#{pettypeid,jdbcType=INTEGER}, #{pettypecontent,jdbcType=VARCHAR}, #{pettypename,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.PetType" >
+    insert into pet_type
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pettypeid != null" >
+        PetTypeId,
+      </if>
+      <if test="pettypecontent != null" >
+        PetTypeContent,
+      </if>
+      <if test="pettypename != null" >
+        PetTypeName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pettypeid != null" >
+        #{pettypeid,jdbcType=INTEGER},
+      </if>
+      <if test="pettypecontent != null" >
+        #{pettypecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="pettypename != null" >
+        #{pettypename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.PetType" >
+    update pet_type
+    <set >
+      <if test="pettypecontent != null" >
+        PetTypeContent = #{pettypecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="pettypename != null" >
+        PetTypeName = #{pettypename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.PetType" >
+    update pet_type
+    set PetTypeContent = #{pettypecontent,jdbcType=VARCHAR},
+      PetTypeName = #{pettypename,jdbcType=VARCHAR}
+    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+  </update>
+</mapper>

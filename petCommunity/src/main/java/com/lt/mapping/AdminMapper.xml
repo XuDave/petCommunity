@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.IAdminDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.Admin" >
+    <id column="AdminID" property="adminid" jdbcType="INTEGER" />
+    <result column="AdminName" property="adminname" jdbcType="VARCHAR" />
+    <result column="Password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    AdminID, AdminName, Password
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from admin
+    where AdminID = #{adminid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from admin
+    where AdminID = #{adminid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lt.pojo.Admin" >
+    insert into admin (AdminID, AdminName, Password
+      )
+    values (#{adminid,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.Admin" >
+    insert into admin
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adminid != null" >
+        AdminID,
+      </if>
+      <if test="adminname != null" >
+        AdminName,
+      </if>
+      <if test="password != null" >
+        Password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adminid != null" >
+        #{adminid,jdbcType=INTEGER},
+      </if>
+      <if test="adminname != null" >
+        #{adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.Admin" >
+    update admin
+    <set >
+      <if test="adminname != null" >
+        AdminName = #{adminname,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        Password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where AdminID = #{adminid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Admin" >
+    update admin
+    set AdminName = #{adminname,jdbcType=VARCHAR},
+      Password = #{password,jdbcType=VARCHAR}
+    where AdminID = #{adminid,jdbcType=INTEGER}
+  </update>
+</mapper>

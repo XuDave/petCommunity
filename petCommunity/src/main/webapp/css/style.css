@@ -1,0 +1,47 @@
+jsp, body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 130%;
+	/*   font-size:12px; */
+	background: #484C49;
+	overflow-x: hidden;
+}
+
+p {
+	font-family: "微软雅黑";
+}
+/* 顶部导航栏 */
+nav.top1.navbar.navbar-default.navbar-static-top {
+	background-color: rgb(6, 217, 149); /*  颜色为浅绿色 */
+	/* font-family: 'Roboto', sans-serif; */
+}
+
+/*顶部文字<药品销售管理系统> */
+.navbar-default .navbar-brand {
+	color: #fff !important;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+/* 侧边导航栏 */
+.navbar-default.sidebar {
+	/* background-color: #000; */
+	background-color: #484C49; /* 颜色为灰黑色 */
+	/* font-family: 'Roboto', sans-serif; */
+}
+
+/*侧边li标签变色*/
+.nav>li>a:focus, .nav>li>a:hover {
+	background-color: rgba(239, 85, 58, 0) !important;
+}
+
+/* 侧边导航文字 */
+.sidebar ul li a {
+	color: #EEE;
+	font-size: 14px;
+}
+
+/* 侧边小图标位置 */
+i.nav_icon {
+	color: #fff;
+	margin-right: 6px;
+}

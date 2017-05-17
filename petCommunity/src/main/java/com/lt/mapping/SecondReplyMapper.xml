@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.ISecondReplyDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.SecondReply" >
+    <id column="SecondReplyId" property="secondreplyid" jdbcType="INTEGER" />
+    <result column="SecondReplyContent" property="secondreplycontent" jdbcType="VARCHAR" />
+    <result column="FirstReplyId" property="firstreplyid" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="PointerUserId" property="pointeruserid" jdbcType="INTEGER" />
+    <result column="SecondReplyUpdateTime" property="secondreplyupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SecondReplyId, SecondReplyContent, FirstReplyId, UserId, PointerUserId, SecondReplyUpdateTime
+  </sql>
+  <!-- 查询所有的二级回复 -->
+  <select id="selectAllSecondReplies" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from second_reply
+  </select>
+    <!-- 根据主键查询二级回复 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from second_reply
+    where SecondReplyId = #{secondreplyid,jdbcType=INTEGER}
+  </select>
+  <!-- 根据一级回复ID查询相应的二级回复 -->
+  <select id="selectAllSecondRepliesByFirstReply" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from second_reply
+    where FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from second_reply
+    where SecondReplyId = #{secondreplyid,jdbcType=INTEGER}
+  </delete>
+    <!-- 根据一级回复ID删除相应的二级回复 -->
+  <delete id="deleteByFirstReply" parameterType="java.lang.Integer">
+    delete from second_reply
+    where  FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.lt.pojo.SecondReply" >
+    insert into second_reply (SecondReplyId, SecondReplyContent, 
+      FirstReplyId, UserId, PointerUserId, 
+      SecondReplyUpdateTime)
+    values (#{secondreplyid,jdbcType=INTEGER}, #{secondreplycontent,jdbcType=VARCHAR}, 
+      #{firstreplyid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{pointeruserid,jdbcType=INTEGER}, 
+      #{secondreplyupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.SecondReply" >
+    insert into second_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="secondreplyid != null" >
+        SecondReplyId,
+      </if>
+      <if test="secondreplycontent != null" >
+        SecondReplyContent,
+      </if>
+      <if test="firstreplyid != null" >
+        FirstReplyId,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="pointeruserid != null" >
+        PointerUserId,
+      </if>
+      <if test="secondreplyupdatetime != null" >
+        SecondReplyUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="secondreplyid != null" >
+        #{secondreplyid,jdbcType=INTEGER},
+      </if>
+      <if test="secondreplycontent != null" >
+        #{secondreplycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="firstreplyid != null" >
+        #{firstreplyid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="pointeruserid != null" >
+        #{pointeruserid,jdbcType=INTEGER},
+      </if>
+      <if test="secondreplyupdatetime != null" >
+        #{secondreplyupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.SecondReply" >
+    update second_reply
+    <set >
+      <if test="secondreplycontent != null" >
+        SecondReplyContent = #{secondreplycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="firstreplyid != null" >
+        FirstReplyId = #{firstreplyid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        UserId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="pointeruserid != null" >
+        PointerUserId = #{pointeruserid,jdbcType=INTEGER},
+      </if>
+      <if test="secondreplyupdatetime != null" >
+        SecondReplyUpdateTime = #{secondreplyupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SecondReplyId = #{secondreplyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.SecondReply" >
+    update second_reply
+    set SecondReplyContent = #{secondreplycontent,jdbcType=VARCHAR},
+      FirstReplyId = #{firstreplyid,jdbcType=INTEGER},
+      UserId = #{userid,jdbcType=INTEGER},
+      PointerUserId = #{pointeruserid,jdbcType=INTEGER},
+      SecondReplyUpdateTime = #{secondreplyupdatetime,jdbcType=TIMESTAMP}
+    where SecondReplyId = #{secondreplyid,jdbcType=INTEGER}
+  </update>
+</mapper>

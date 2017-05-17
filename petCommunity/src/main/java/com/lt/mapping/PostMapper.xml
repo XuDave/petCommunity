@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.IPostDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.Post" >
+    <id column="PostId" property="postid" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="PostTitle" property="posttitle" jdbcType="VARCHAR" />
+    <result column="PostContent" property="postcontent" jdbcType="VARCHAR" />
+    <result column="PostImagePath" property="postimagepath" jdbcType="VARCHAR" />
+    <result column="PostUpdateTime" property="postupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PostId, UserId, PostTitle, PostContent, PostImagePath, PostUpdateTime
+  </sql>
+  
+  <!-- 查询所有的帖子 -->
+  <select id="selectAllPosts" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from post
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from post
+    where PostId = #{postid,jdbcType=INTEGER}
+  </select>
+  
+    <!-- 根据用户查询相应的帖子 -->
+  <select id="selectPostsByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from post
+    where UserId = #{userid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from post
+    where PostId = #{postid,jdbcType=INTEGER}
+  </delete>
+    <!-- 根据用户删除相应的帖子 -->
+  <delete id="deleteByUser"  parameterType="java.lang.Integer">
+   delete from post
+    where UserId = #{userid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.lt.pojo.Post" >
+    insert into post (PostId, UserId, PostTitle, 
+      PostContent, PostImagePath, PostUpdateTime
+      )
+    values (#{postid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{posttitle,jdbcType=VARCHAR}, 
+      #{postcontent,jdbcType=VARCHAR}, #{postimagepath,jdbcType=VARCHAR}, #{postupdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.Post" >
+    insert into post
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="postid != null" >
+        PostId,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+      <if test="posttitle != null" >
+        PostTitle,
+      </if>
+      <if test="postcontent != null" >
+        PostContent,
+      </if>
+      <if test="postimagepath != null" >
+        PostImagePath,
+      </if>
+      <if test="postupdatetime != null" >
+        PostUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="postid != null" >
+        #{postid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="posttitle != null" >
+        #{posttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="postcontent != null" >
+        #{postcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="postimagepath != null" >
+        #{postimagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="postupdatetime != null" >
+        #{postupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.Post" >
+    update post
+    <set >
+      <if test="userid != null" >
+        UserId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="posttitle != null" >
+        PostTitle = #{posttitle,jdbcType=VARCHAR},
+      </if>
+      <if test="postcontent != null" >
+        PostContent = #{postcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="postimagepath != null" >
+        PostImagePath = #{postimagepath,jdbcType=VARCHAR},
+      </if>
+      <if test="postupdatetime != null" >
+        PostUpdateTime = #{postupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PostId = #{postid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Post" >
+    update post
+    set UserId = #{userid,jdbcType=INTEGER},
+      PostTitle = #{posttitle,jdbcType=VARCHAR},
+      PostContent = #{postcontent,jdbcType=VARCHAR},
+      PostImagePath = #{postimagepath,jdbcType=VARCHAR},
+      PostUpdateTime = #{postupdatetime,jdbcType=TIMESTAMP}
+    where PostId = #{postid,jdbcType=INTEGER}
+  </update>
+</mapper>

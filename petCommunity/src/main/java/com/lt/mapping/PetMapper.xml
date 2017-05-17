@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.IPetDaor" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.Pet" >
+    <id column="PetId" property="petid" jdbcType="INTEGER" />
+    <result column="PetName" property="petname" jdbcType="VARCHAR" />
+    <result column="PetTypeId" property="pettypeid" jdbcType="INTEGER" />
+    <result column="PetAge" property="petage" jdbcType="INTEGER" />
+    <result column="PetSex" property="petsex" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PetId, PetName, PetTypeId, PetAge, PetSex, UserId
+  </sql>
+  
+<!--   查询所有的宠物 -->
+  <select id="selectAllPets" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pet
+  </select>
+  <!-- 根据主键查询宠物 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pet
+    where PetId = #{petid,jdbcType=INTEGER}
+  </select>
+   <!-- 根据用户查询相应的宠物 -->
+  <select id="selectPetsByUser" resultMap="BaseResultMap" >
+     select 
+    <include refid="Base_Column_List" />
+    from pet
+    where UserId = #{userid,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 根据宠物类型查询所有的宠物 -->
+  <select id="selectPetsByType" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from pet
+    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pet
+    where PetId = #{petid,jdbcType=INTEGER}
+  </delete>
+  
+   <!-- 根据用户删除相应的宠物 -->
+  <delete id="deleteByUserId" parameterType="java.lang.Integer">
+    delete from pet
+    where UserId = #{userid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.lt.pojo.Pet" >
+    insert into pet (PetId, PetName, PetTypeId, 
+      PetAge, PetSex, UserId
+      )
+    values (#{petid,jdbcType=INTEGER}, #{petname,jdbcType=VARCHAR}, #{pettypeid,jdbcType=INTEGER}, 
+      #{petage,jdbcType=INTEGER}, #{petsex,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.Pet" >
+    insert into pet
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="petid != null" >
+        PetId,
+      </if>
+      <if test="petname != null" >
+        PetName,
+      </if>
+      <if test="pettypeid != null" >
+        PetTypeId,
+      </if>
+      <if test="petage != null" >
+        PetAge,
+      </if>
+      <if test="petsex != null" >
+        PetSex,
+      </if>
+      <if test="userid != null" >
+        UserId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="petid != null" >
+        #{petid,jdbcType=INTEGER},
+      </if>
+      <if test="petname != null" >
+        #{petname,jdbcType=VARCHAR},
+      </if>
+      <if test="pettypeid != null" >
+        #{pettypeid,jdbcType=INTEGER},
+      </if>
+      <if test="petage != null" >
+        #{petage,jdbcType=INTEGER},
+      </if>
+      <if test="petsex != null" >
+        #{petsex,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.Pet" >
+    update pet
+    <set >
+      <if test="petname != null" >
+        PetName = #{petname,jdbcType=VARCHAR},
+      </if>
+      <if test="pettypeid != null" >
+        PetTypeId = #{pettypeid,jdbcType=INTEGER},
+      </if>
+      <if test="petage != null" >
+        PetAge = #{petage,jdbcType=INTEGER},
+      </if>
+      <if test="petsex != null" >
+        PetSex = #{petsex,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        UserId = #{userid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where PetId = #{petid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Pet" >
+    update pet
+    set PetName = #{petname,jdbcType=VARCHAR},
+      PetTypeId = #{pettypeid,jdbcType=INTEGER},
+      PetAge = #{petage,jdbcType=INTEGER},
+      PetSex = #{petsex,jdbcType=INTEGER},
+      UserId = #{userid,jdbcType=INTEGER}
+    where PetId = #{petid,jdbcType=INTEGER}
+  </update>
+</mapper>

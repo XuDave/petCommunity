@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lt.dao.ICommodityDao" >
+  <resultMap id="BaseResultMap" type="com.lt.pojo.Commodity" >
+    <id column="CommodityId" property="commodityid" jdbcType="INTEGER" />
+    <result column="CommodityPrice" property="commodityprice" jdbcType="DECIMAL" />
+    <result column="CommodityContent" property="commoditycontent" jdbcType="VARCHAR" />
+    <result column="CommodityCount" property="commoditycount" jdbcType="INTEGER" />
+    <result column="CommodityState" property="commoditystate" jdbcType="INTEGER" />
+    <result column="CommodityUpdateTime" property="commodityupdatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CommodityId, CommodityPrice, CommodityContent, CommodityCount, CommodityState, CommodityUpdateTime
+  </sql>
+  
+  <select id="selectAllCommodities" resultMap="BaseResultMap">
+   select 
+    <include refid="Base_Column_List" />
+    from commodity
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from commodity
+    where CommodityId = #{commodityid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from commodity
+    where CommodityId = #{commodityid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lt.pojo.Commodity" >
+    insert into commodity (CommodityId, CommodityPrice, CommodityContent, 
+      CommodityCount, CommodityState, CommodityUpdateTime
+      )
+    values (#{commodityid,jdbcType=INTEGER}, #{commodityprice,jdbcType=DECIMAL}, #{commoditycontent,jdbcType=VARCHAR}, 
+      #{commoditycount,jdbcType=INTEGER}, #{commoditystate,jdbcType=INTEGER}, #{commodityupdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lt.pojo.Commodity" >
+    insert into commodity
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commodityid != null" >
+        CommodityId,
+      </if>
+      <if test="commodityprice != null" >
+        CommodityPrice,
+      </if>
+      <if test="commoditycontent != null" >
+        CommodityContent,
+      </if>
+      <if test="commoditycount != null" >
+        CommodityCount,
+      </if>
+      <if test="commoditystate != null" >
+        CommodityState,
+      </if>
+      <if test="commodityupdatetime != null" >
+        CommodityUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commodityid != null" >
+        #{commodityid,jdbcType=INTEGER},
+      </if>
+      <if test="commodityprice != null" >
+        #{commodityprice,jdbcType=DECIMAL},
+      </if>
+      <if test="commoditycontent != null" >
+        #{commoditycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="commoditycount != null" >
+        #{commoditycount,jdbcType=INTEGER},
+      </if>
+      <if test="commoditystate != null" >
+        #{commoditystate,jdbcType=INTEGER},
+      </if>
+      <if test="commodityupdatetime != null" >
+        #{commodityupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lt.pojo.Commodity" >
+    update commodity
+    <set >
+      <if test="commodityprice != null" >
+        CommodityPrice = #{commodityprice,jdbcType=DECIMAL},
+      </if>
+      <if test="commoditycontent != null" >
+        CommodityContent = #{commoditycontent,jdbcType=VARCHAR},
+      </if>
+      <if test="commoditycount != null" >
+        CommodityCount = #{commoditycount,jdbcType=INTEGER},
+      </if>
+      <if test="commoditystate != null" >
+        CommodityState = #{commoditystate,jdbcType=INTEGER},
+      </if>
+      <if test="commodityupdatetime != null" >
+        CommodityUpdateTime = #{commodityupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CommodityId = #{commodityid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Commodity" >
+    update commodity
+    set CommodityPrice = #{commodityprice,jdbcType=DECIMAL},
+      CommodityContent = #{commoditycontent,jdbcType=VARCHAR},
+      CommodityCount = #{commoditycount,jdbcType=INTEGER},
+      CommodityState = #{commoditystate,jdbcType=INTEGER},
+      CommodityUpdateTime = #{commodityupdatetime,jdbcType=TIMESTAMP}
+    where CommodityId = #{commodityid,jdbcType=INTEGER}
+  </update>
+</mapper>
