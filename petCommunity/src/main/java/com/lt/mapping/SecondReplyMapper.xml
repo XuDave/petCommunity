@@ -32,7 +32,13 @@
     from second_reply
     where FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
   </select>
-  
+  <!-- 根据用户ID查询相应的二级回复 --> 
+  <select id="selectAllSecondRepliesByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select 
+    <include refid="Base_Column_List" />
+    from second_reply
+    where UserId =  #{userid,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from second_reply
     where SecondReplyId = #{secondreplyid,jdbcType=INTEGER}
@@ -42,7 +48,11 @@
     delete from second_reply
     where  FirstReplyId = #{firstreplyid,jdbcType=INTEGER}
   </delete>
-  
+   <!-- 根据用户ID删除相应的二级回复 --> 
+  <delete id="deleteByUserId" parameterType="java.lang.Integer" >
+     delete from second_reply
+      where UserId =  #{userid,jdbcType=INTEGER}
+  </delete>  
   <insert id="insert" parameterType="com.lt.pojo.SecondReply" >
     insert into second_reply (SecondReplyId, SecondReplyContent, 
       FirstReplyId, UserId, PointerUserId, 

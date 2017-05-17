@@ -10,7 +10,11 @@ public interface ISecondReplyDao {
 	
 	List<SecondReply> selectAllSecondRepliesByFirstReply(Integer firstreplyid);
 	
+	List<SecondReply> selectAllSecondRepliesByUserId(Integer userid);
+	
     int deleteByPrimaryKey(Integer secondreplyid);
+    
+    int deleteByUserId(Integer userid);
 
     int insert(SecondReply record);
 

@@ -10,9 +10,13 @@ public interface IFirstReplyDao {
 	
 	List<FirstReply> selectAllFirstRepliesByPostId(Integer postid);
 	
+	List<FirstReply> selectAllFirstRepliesByUserId(Integer userid);
+	
     int deleteByPrimaryKey(Integer firstreplyid);
     
     int deleteByPostId(Integer postid);
+    
+    int deleteByUserId(Integer userid);
 
     int insert(FirstReply record);
 
