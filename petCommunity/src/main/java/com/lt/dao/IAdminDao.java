@@ -8,6 +8,8 @@ public interface IAdminDao {
 	
 	List<Admin> selectAllAdmins();
 	
+	Admin selectByName(String adminName);
+	
     int deleteByPrimaryKey(Integer adminid);
 
     int insert(Admin record);
