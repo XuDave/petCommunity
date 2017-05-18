@@ -98,4 +98,22 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 9; columnNumber: 57; 必�
   [INFO] [2017-05-17 12:29:54][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":7,"username":"发达","userpassword":"(null)啊","usersex":0,"userupdatetime":1494855176000}
   [INFO] [2017-05-17 12:29:54][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":8,"username":"阿发","userpassword":"(null)顶顶顶顶","usersex":0,"userupdatetime":1494855219000}
   [INFO] [2017-05-17 12:29:54][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@4475a0c6: startup date [Wed May 17 12:29:54 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-18 14:12:41][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-18 14:12:41][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@14377358: startup date [Thu May 18 14:12:41 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-18 14:12:41][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-18 14:12:41][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":1,"username":"test","userpassword":"test","usersex":0,"userupdatetime":1494779499000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":2,"username":"","userpassword":"","usersex":0,"userupdatetime":1494850583000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":3,"username":"舒服舒服","userpassword":"是是","usersex":0,"userupdatetime":1494851010000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":4,"username":"顺风顺水","userpassword":"是是是","usersex":0,"userupdatetime":1494851130000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":5,"username":"啊发发","userpassword":"啊啊","usersex":0,"userupdatetime":1494851200000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":6,"username":"ddd","userpassword":"(null肥嘟嘟)","usersex":0,"userupdatetime":1494854988000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":7,"username":"发达","userpassword":"(null)啊","usersex":0,"userupdatetime":1494855176000}
+  [INFO] [2017-05-18 14:12:42][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":8,"username":"阿发","userpassword":"(null)顶顶顶顶","usersex":0,"userupdatetime":1494855219000}
+  [INFO] [2017-05-18 14:12:42][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@14377358: startup date [Thu May 18 14:12:41 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-18 14:15:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-18 14:15:27][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@14377358: startup date [Thu May 18 14:15:27 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-18 14:15:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-18 14:15:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-18 14:15:28][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@14377358: startup date [Thu May 18 14:15:27 CST 2017]; root of context hierarchy
   

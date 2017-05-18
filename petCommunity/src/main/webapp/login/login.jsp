@@ -53,15 +53,15 @@ p {
 		style="background: rgb(255, 255, 255); margin: -100px auto auto; border: 1px solid rgb(231, 231, 231); border-image: none; width: 400px; height: 200px; text-align: center; border-radius: 15px">
 		<p style="font-size: 16px; font-family: '微软雅黑'; margin-top: 10px">管理员登录</p>
 		<form
-			<%-- action="${pageContext.request.contextPath}/staffManage/checkLogin" --%>
-			action="${pageContext.request.contextPath}/user/userList" 
+		action="${pageContext.request.contextPath}/admin/checkLogin"
+		<%-- 	action="${pageContext.request.contextPath}/user/userList"  --%>
 			method="post" onsubmit="return isEmptyAdmin()">
 			<div>
 				<div class="form-horizontal">
 					<div class="form-group" style="margin: 10px 0px 20px 0px">
 						<p class="col-sm-2 control-label" style="width: 30%">用户名：</p>
 						<div class="col-sm-10" style="width: 60%; margin-left: -20px">
-							<input type="text" name="adminName" id="adminName"
+							<input type="text" name="adminid" id="adminName"
 								class="form-control" onchange="isExistingAdmin()"
 								placeholder="管理员登录名" />
 						</div>
