@@ -2,63 +2,67 @@ package com.lt.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lt.dao.ISecondReplyDao;
 import com.lt.pojo.SecondReply;
 import com.lt.service.ISecondReplyService;
 
+@Service
 public class SecondReplyServiceImpl implements ISecondReplyService {
 
+	@Autowired
+	private ISecondReplyDao secondReplyDao;
+	
 	@Override
 	public List<SecondReply> selectAllSecondReplies() {
-		// TODO Auto-generated method stub
-		return null;
+		return secondReplyDao.selectAllSecondReplies();
 	}
 
 	@Override
 	public SecondReply selectSecondReplyById(Integer sId) {
-		// TODO Auto-generated method stub
-		return null;
+		return secondReplyDao.selectByPrimaryKey(sId);
 	}
 
 	@Override
-	public List<SecondReply> selectSecondReplyByPostId(Integer pId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<SecondReply> selectSecondReplyByFirstReplyId(Integer fId) {
+		return secondReplyDao.selectAllSecondRepliesByFirstReply(fId);
 	}
 
 	@Override
-	public List<SecondReply> selectSeconfReplyByUserId(Integer uId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<SecondReply> selectSecondReplyByUserId(Integer uId) {
+		return secondReplyDao.selectAllSecondRepliesByUserId(uId);
 	}
 
 	@Override
 	public int insertSecondReply(SecondReply secondReply) {
-		// TODO Auto-generated method stub
-		return 0;
+	    int i = secondReplyDao.insert(secondReply);
+		return i;
 	}
 
 	@Override
 	public int updateSecondReply(SecondReply secondReply) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = secondReplyDao.updateByPrimaryKeySelective(secondReply);
+		return  i;
 	}
 
 	@Override
 	public int deleteSecondReply(Integer sId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = secondReplyDao.deleteByPrimaryKey(sId);
+		return i;
 	}
 
 	@Override
 	public int deleteSecondReplyByFirstReply(Integer fId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = secondReplyDao.deleteByFirstReply(fId);
+		return i;
 	}
 
 	@Override
 	public int deleteSecondReplyByUser(Integer uId) {
-		// TODO Auto-generated method stub
-		return 0;
+		int i = secondReplyDao.deleteByUserId(uId);
+		return i;
 	}
 
 }

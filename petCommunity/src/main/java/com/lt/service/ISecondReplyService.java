@@ -26,7 +26,7 @@ public interface ISecondReplyService {
 	 * @param pId
 	 * @return
 	 */
-	List<SecondReply> selectSecondReplyByPostId(Integer pId);
+	List<SecondReply> selectSecondReplyByFirstReplyId(Integer fId);
 	
 	/**
 	 * 根据用户编号查询相应的二级回复
@@ -34,7 +34,7 @@ public interface ISecondReplyService {
 	 * @param uId
 	 * @return
 	 */
-	List<SecondReply> selectSeconfReplyByUserId(Integer uId);
+	List<SecondReply> selectSecondReplyByUserId(Integer uId);
 	
 	/**
 	 * 添加二级回复
