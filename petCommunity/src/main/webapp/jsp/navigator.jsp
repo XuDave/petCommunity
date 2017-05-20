@@ -45,7 +45,7 @@
 								class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li><a
-									href="${pageContext.request.contextPath}/jsp/personalInfoManage.jsp">修改密码</a></li>
+									href="${pageContext.request.contextPath}/jsp/admin.jsp">修改密码</a></li>
 							</ul> <!-- /.nav-second-level --></li>
 							<li><a href="#"><i class="fa fa-indent nav_icon"></i>帖子管理<span
 									class="fa arrow"></span></a>
