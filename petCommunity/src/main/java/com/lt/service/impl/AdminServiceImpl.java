@@ -42,4 +42,9 @@ public class AdminServiceImpl implements IAdminService {
 		return i;
 	}
 
+	@Override
+	public Admin selectByName(String adminName) {
+		return adminDao.selectByName(adminName);
+	}
+
 }

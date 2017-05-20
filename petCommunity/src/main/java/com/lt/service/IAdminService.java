@@ -44,4 +44,11 @@ public interface IAdminService {
     */
    int deleteAdmin(Integer aId);
    
+   /**
+    * 根据用户名查询管理员
+    * 
+    * @param adminName
+    * @return
+    */
+   Admin selectByName(String adminName);
 }

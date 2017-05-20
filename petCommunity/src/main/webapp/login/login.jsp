@@ -61,7 +61,7 @@ p {
 					<div class="form-group" style="margin: 10px 0px 20px 0px">
 						<p class="col-sm-2 control-label" style="width: 30%">用户名：</p>
 						<div class="col-sm-10" style="width: 60%; margin-left: -20px">
-							<input type="text" name="adminid" id="adminName"
+							<input type="text" name="adminname" id="adminName"
 								class="form-control" onchange="isExistingAdmin()"
 								placeholder="管理员登录名" />
 						</div>
