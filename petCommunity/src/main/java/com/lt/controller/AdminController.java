@@ -1,5 +1,7 @@
 package com.lt.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +23,7 @@ public class AdminController {
 	Logger logger = Logger.getLogger(AdminController.class);
 
 	@RequestMapping("/checkLogin")
-	public ModelAndView checkLogin(Admin admin, ModelMap model) {
+	public ModelAndView checkLogin(Admin admin, ModelMap model,HttpSession httpSession) {
 		ModelAndView mv = new ModelAndView();
 		logger.info("用户为" + JSON.toJSONString(admin));
 		ProcessResult processResult = new ProcessResult();
@@ -30,6 +32,7 @@ public class AdminController {
 			Admin ad = adminService.selectByName(admin.getAdminname());
 			if (ad != null) {
 				if (ad.getPassword().equals(admin.getPassword())) {
+					httpSession.setAttribute("curAdmin", ad);  
 					mv.setViewName("fontPage");
 				}else{
 					processResult.setProcessResultDesc("密码错误！");

@@ -28,7 +28,7 @@
 		</div>
 		<div style="margin: 80px 0px 0px 350px">
 			<img src="../images/fontPagePic.jpg"
-				style="width: 420px; height: 230px">
+				style="width: 450px; height: 320px">
 			<h3 style="margin-left: 50px">欢迎进入宠物社区后台管理系统！</h3>
 		</div>
 	</div>

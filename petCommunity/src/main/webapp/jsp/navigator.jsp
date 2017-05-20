@@ -28,9 +28,8 @@
 			<%-- 				<p>${curAdmin.adminName }</p> --%>
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">宠物社区后台管理系统</a>
-				<p style="margin-left: 950px; margin-top: 15px">
-					当前登录用户为：${curAdmin.adminName } <span id="privilegeName">用户角色为：${curAdmin.privilegeType }</span>
-					<span id="privilege" style="display: none">${curAdmin.privilege }</span>
+				<p style="margin-left: 1200px; margin-top: 15px">
+					${curAdmin.adminname } 您好，欢迎使用宠物社区后台管理系统
 					<a href="${pageContext.request.contextPath}/staffManage/loginout"
 						onclick=""><i class="fa fa-power-off fa-1x"></i></a>
 				</p>
