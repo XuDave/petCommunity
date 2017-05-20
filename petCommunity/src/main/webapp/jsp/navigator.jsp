@@ -47,30 +47,25 @@
 								<li><a
 									href="${pageContext.request.contextPath}/jsp/admin.jsp">修改密码</a></li>
 							</ul> <!-- /.nav-second-level --></li>
-							<li><a href="#"><i class="fa fa-indent nav_icon"></i>帖子管理<span
+							<li><a href="${pageContext.request.contextPath}/post/postList"><i class="fa fa-indent nav_icon"></i>帖子管理<span
 									class="fa arrow"></span></a>
-								<ul class="nav nav-second-level">
-									<li><a
-										href="${pageContext.request.contextPath}/jsp/classificationManage.jsp">分类列表</a></li>
-									<li><a
-										href="${pageContext.request.contextPath}/drugManage/getAllDrugInfo">药品列表</a></li>
-								</ul> <!-- /.nav-second-level --></li>
-							<li><a href="#"><i class="fa fa-table nav_icon"></i>商品管理<span
+						   </li>
+							<li><a href="${pageContext.request.contextPath}/commodity/commodityList"><i class="fa fa-table nav_icon"></i>商品管理<span
 									class="fa arrow"></span></a>
-								<ul class="nav nav-second-level">
+								<%-- <ul class="nav nav-second-level">
 									<li><a
 										href="${pageContext.request.contextPath}/inventoryManage/getAllInventoryInfo">库存列表</a></li>
 									<li><a
 										href="${pageContext.request.contextPath}/orderManage/getExaminedOrderInfo">出库订单</a></li>
-								</ul> <!-- /.nav-second-level --></li>
-							<li><a href="#"><i class="fa fa-user fa-fw nav_icon"></i>用户管理<span
+								</ul>  --%><!-- /.nav-second-level --></li>
+							<li><a href="${pageContext.request.contextPath}/user/userList"><i class="fa fa-user fa-fw nav_icon"></i>用户管理<span
 									class="fa arrow"></span></a>
-								<ul class="nav nav-second-level">
+								<%-- <ul class="nav nav-second-level">
 									<li><a
 										href="${pageContext.request.contextPath}/staffManage/getAllAdminInfo">员工管理</a></li>
 									<li><a
 										href="${pageContext.request.contextPath}/customerManage/getAllCustomerInfo">客户管理</a></li>
-								</ul> <!-- /.nav-second-level --></li>
+								</ul> --%> <!-- /.nav-second-level --></li>
 					</ul>
 				</div>
 			</div>

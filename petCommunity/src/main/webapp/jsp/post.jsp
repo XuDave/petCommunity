@@ -12,7 +12,7 @@
 <script
 	src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>user</title>
+<title>post</title>
 </head>
 <body>
 	<%@include file="../jsp/navigator.jsp"%>
@@ -20,8 +20,8 @@
 		<!-- 面包屑 -->
 		<ul class="breadcrumb">
 			<li><a href="#">首页</a> <span class="divider"></span></li>
-			<li><a href="#">用户管理</a> <span class="divider"></span></li>
-			<li class="active">用户列表</li>
+			<li><a href="#">帖子管理</a> <span class="divider"></span></li>
+			<li class="active">帖子列表</li>
 		</ul>
 		<!-- 提醒框 -->
 		<div id="alert" style="display: none">
@@ -33,30 +33,23 @@
 			<thead>
 				<tr align="center">
 					<td>ID</td>
-					<td>登录名</td>
-					<td>密码</td>
-					<td>性别</td>
-					<td>年龄</td>
-					<td>电话号码</td>
-					<td>地址</td>
-					<td>登记时间</td>
+					<td>标题</td>
+					<td>内容</td>
+					<td>作者</td>
+					<td>更新时间</td>
 					<td>操作</td>
 				</tr>
 			</thead>
-			<c:forEach items="${userList }" var="user">
+			<c:forEach items="${postList }" var="post">
 				<tr align="center">
-					<td>${user.userid}</td>
-					<td>${user.username}</td>
-					<td>${user.userpassword}</td>
-					<td>${user.usersex}</td>
-					<td>${user.userage}</td>
-					<td>${user.userphone}</td>
-					<td>${user.useraddress}</td>
-					<td><spring:eval expression="user.userupdatetime"></spring:eval></td>
-					<td><a href="#" onclick="getSaffInfo(${user.userid})"
-						data-toggle="modal" data-target="#staff">查看</a> <a
-						href="../staffManage/updateAdminByID/${user.userid }">更新</a> <a
-						href="../staffManage/deleteAdminInfo?id=${user.userid }"
+					<td>${post.postid}</td>
+					<td>${post.posttitle}</td>
+					<td>${post.postcontent}</td>
+					<td>${post.userid}</td>
+					<td><spring:eval expression="post.postupdatetime"></spring:eval></td>
+					<td> <a
+						href="../staffManage/updateAdminByID/${post.postid}">查看</a> <a
+						href="../post/deletePost?id=${post.postid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
