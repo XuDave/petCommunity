@@ -40,16 +40,16 @@
 					<td>操作</td>
 				</tr>
 			</thead>
-			<c:forEach items="${postList }" var="post">
+			<c:forEach items="${firstReplyList }" var="firstReply">
 				<tr align="center">
-					<td>${post.postid}</td>
-					<td>${post.posttitle}</td>
-					<td>${post.postcontent}</td>
-					<td>${post.userid}</td>
+					<td>${firstReply.firstreplyid}</td>
+					<td>${firstReply.firstreplycontent}</td>
+					<td>${firstReply.postid}</td>
+					<td>${firstReply.userid}</td>
 					<td><spring:eval expression="post.postupdatetime"></spring:eval></td>
 					<td> <a
-						href="../firstReply/findByPost?${post.postid}">查看</a> <a
-						href="../post/deletePost?id=${post.postid}"
+						href="../firstReply/findByPost?${firstReply.firstreplyid}">查看</a> <a
+						href="../post/deletePost?id=${firstReply.firstreplyid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
