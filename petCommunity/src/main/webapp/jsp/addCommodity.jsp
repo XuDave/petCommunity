@@ -34,6 +34,7 @@
 						<input type="text" class="form-control" id="commoditycontent"
 							name="commoditycontent" placeholder="商品名">
 					</div>
+					<label style="color: red">*</label>
 				</div>
 				<div class="form-group">
 					<p class="col-sm-2 control-label" style="width: 30%">单价：</p>
