@@ -49,22 +49,22 @@
 					<td>${commodity.commoditycount}</td>
 					<td>${commodity.commoditystate}</td>
 					<td><spring:eval expression="commodity.commodityupdatetime"></spring:eval></td>
-					<td> <a
-						href="#">编辑</a>
-						<c:if test="${commodity.commoditystate==0}">
-						 <a
-						href="../commodity/upCommodity?id=${commodity.commodityid}">上架</a>
-						</c:if>
-						<c:if test="${commodity.commoditystate==1}">
-						 <a
-						href="../commodity/downCommodity?id=${commodity.commodityid}">下架</a>
-						</c:if>
-						 <a
+					<td><c:if
+							test="${commodity.commoditystate==0}">
+							<a href="../commodity/upCommodity?id=${commodity.commodityid}">上架</a>
+						</c:if> <c:if test="${commodity.commoditystate==1}">
+							<a href="../commodity/downCommodity?id=${commodity.commodityid}">下架</a>
+						</c:if> <a
 						href="../commodity/deleteCommodity?id=${commodity.commodityid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
-		</table>	
+		</table>
+		<a href="${pageContext.request.contextPath}/jsp/addCommodity.jsp">
+			<button type="button" class="btn btn-info">
+				<i class="fa fa-plus"></i>
+			</button>
+		</a>
 	</div>
 	<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 	<script src="${pageContext.request.contextPath}/js/alert.js"></script>

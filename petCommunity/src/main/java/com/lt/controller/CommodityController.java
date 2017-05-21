@@ -1,5 +1,6 @@
 package com.lt.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
+import com.alibaba.fastjson.JSON;
 import com.lt.pojo.Commodity;
-import com.lt.pojo.Pet;
 import com.lt.pojo.ProcessResult;
 import com.lt.service.ICommodityService;
 
@@ -105,6 +106,30 @@ public class CommodityController {
 		} catch (Exception e) {
 			logger.error("下架商品异常！" + e.toString());
 			processResult.setProcessResultDesc("下架商品异常！");
+		} finally {
+			model.addFlashAttribute("processResult", processResult);
+			mv.setViewName("redirect:/commodity/commodityList");
+		}
+		return mv;
+	}
+
+	@RequestMapping("/insertCommodity")
+	public ModelAndView insertCommodity(Commodity commodity, RedirectAttributesModelMap model) {
+		ModelAndView mv = new ModelAndView();
+		ProcessResult processResult = new ProcessResult();
+		try {
+			commodity.setCommodityupdatetime(new Date());
+            logger.info(JSON.toJSONString(commodity));
+			int i = commodityService.insertCommodity(commodity);
+			if (i > 0) {
+				processResult.setProcessResultDesc("添加商品信息成功！");
+			} else {
+				processResult.setProcessResultDesc("添加商品信息成功！");
+			}
+
+		} catch (Exception e) {
+			logger.error("添加商品信息异常！" + e.toString());
+			processResult.setProcessResultDesc("添加商品信息异常！");
 		} finally {
 			model.addFlashAttribute("processResult", processResult);
 			mv.setViewName("redirect:/commodity/commodityList");
