@@ -48,7 +48,7 @@
 					<td>${post.userid}</td>
 					<td><spring:eval expression="post.postupdatetime"></spring:eval></td>
 					<td> <a
-						href="../firstReply/findByPost?${post.postid}">查看</a> <a
+						href="../firstReply/findByPost?id=${post.postid}">查看</a> <a
 						href="../post/deletePost?id=${post.postid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>

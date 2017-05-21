@@ -12,7 +12,7 @@
 <script
 	src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>user</title>
+<title>secondReply</title>
 </head>
 <body>
 	<%@include file="../jsp/navigator.jsp"%>
@@ -20,8 +20,8 @@
 		<!-- 面包屑 -->
 		<ul class="breadcrumb">
 			<li><a href="#">首页</a> <span class="divider"></span></li>
-			<li><a href="#">用户管理</a> <span class="divider"></span></li>
-			<li class="active">用户列表</li>
+			<li><a href="#">帖子管理</a> <span class="divider"></span></li>
+			<li class="active">二级回复列表</li>
 		</ul>
 		<!-- 提醒框 -->
 		<div id="alert" style="display: none">
@@ -33,29 +33,22 @@
 			<thead>
 				<tr align="center">
 					<td>ID</td>
-					<td>登录名</td>
-					<td>密码</td>
-					<td>性别</td>
-					<td>年龄</td>
-					<td>电话号码</td>
-					<td>地址</td>
-					<td>登记时间</td>
+					<td>回复内容</td>
+					<td>一级回复ID</td>
+					<td>作者</td>
+					<td>回复时间</td>
 					<td>操作</td>
 				</tr>
 			</thead>
-			<c:forEach items="${userList }" var="user">
+			<c:forEach items="${secondReplyList }" var="secondReply">
 				<tr align="center">
-					<td>${user.userid}</td>
-					<td>${user.username}</td>
-					<td>${user.userpassword}</td>
-					<td>${user.usersex}</td>
-					<td>${user.userage}</td>
-					<td>${user.userphone}</td>
-					<td>${user.useraddress}</td>
-					<td><spring:eval expression="user.userupdatetime"></spring:eval></td>
-					<td><a
-						href="../pet/findPetByUser?id=${user.userid }">查看</a> <a
-						href="../staffManage/deleteAdminInfo?id=${user.userid }"
+					<td>${secondReply.secondreplyid}</td>
+					<td>${secondReply.secondreplycontent}</td>
+					<td>${secondReply.firstreplyid}</td>
+					<td>${secondReply.userid}</td>
+					<td><spring:eval expression="secondReply.secondreplyupdatetime"></spring:eval></td>
+					<td> <a
+						href="../secondReply/deleteSecondReply?id=${secondReply.secondreplyid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>

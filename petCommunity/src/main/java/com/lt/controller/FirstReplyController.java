@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lt.pojo.FirstReply;
@@ -22,10 +23,11 @@ public class FirstReplyController {
 	private Logger logger = Logger.getLogger(FirstReplyController.class);
 	
 	@RequestMapping("/findByPost")
-	public ModelAndView findByPost(Integer id,ModelMap model){
+	public ModelAndView findByPost(@RequestParam("id")Integer id,ModelMap model){
 		ModelAndView mv = new ModelAndView();
-		logger.info("删除的id为："+id);
+		System.out.println("帖子ID:"+id);
 		List<FirstReply>  firstReplyList= firstReplyService.selectFirstReplyByPostId(id);
+		System.out.println("一级回复条数："+firstReplyList.size());
 		model.addAttribute("firstReplyList", firstReplyList);
 		mv.setViewName("firstReply");
 		return mv;

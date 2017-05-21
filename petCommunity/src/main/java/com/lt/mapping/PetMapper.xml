@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lt.dao.IPetDaor" >
+<mapper namespace="com.lt.dao.IPetDao" >
   <resultMap id="BaseResultMap" type="com.lt.pojo.Pet" >
     <id column="PetId" property="petid" jdbcType="INTEGER" />
     <result column="PetName" property="petname" jdbcType="VARCHAR" />
@@ -27,7 +27,7 @@
     where PetId = #{petid,jdbcType=INTEGER}
   </select>
    <!-- 根据用户查询相应的宠物 -->
-  <select id="selectPetsByUser" resultMap="BaseResultMap" >
+  <select id="selectPetsByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
      select 
     <include refid="Base_Column_List" />
     from pet

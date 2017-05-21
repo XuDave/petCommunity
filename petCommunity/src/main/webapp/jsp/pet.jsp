@@ -12,7 +12,7 @@
 <script
 	src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>user</title>
+<title>pet</title>
 </head>
 <body>
 	<%@include file="../jsp/navigator.jsp"%>
@@ -21,7 +21,7 @@
 		<ul class="breadcrumb">
 			<li><a href="#">首页</a> <span class="divider"></span></li>
 			<li><a href="#">用户管理</a> <span class="divider"></span></li>
-			<li class="active">用户列表</li>
+			<li class="active">宠物列表</li>
 		</ul>
 		<!-- 提醒框 -->
 		<div id="alert" style="display: none">
@@ -33,29 +33,24 @@
 			<thead>
 				<tr align="center">
 					<td>ID</td>
-					<td>登录名</td>
-					<td>密码</td>
-					<td>性别</td>
+					<td>名字</td>
+					<td>种类</td>
 					<td>年龄</td>
-					<td>电话号码</td>
-					<td>地址</td>
-					<td>登记时间</td>
+					<td>性别</td>
+					<td>用户ID</td>
 					<td>操作</td>
 				</tr>
 			</thead>
-			<c:forEach items="${userList }" var="user">
+			<c:forEach items="${petList }" var="pet">
 				<tr align="center">
-					<td>${user.userid}</td>
-					<td>${user.username}</td>
-					<td>${user.userpassword}</td>
-					<td>${user.usersex}</td>
-					<td>${user.userage}</td>
-					<td>${user.userphone}</td>
-					<td>${user.useraddress}</td>
-					<td><spring:eval expression="user.userupdatetime"></spring:eval></td>
+					<td>${pet.petid}</td>
+					<td>${pet.petname}</td>
+					<td>${pet.pettypeid}</td>
+					<td>${pet.petage}</td>
+					<td>${pet.petsex}</td>
+					<td>${pet.userid}</td>
 					<td><a
-						href="../pet/findPetByUser?id=${user.userid }">查看</a> <a
-						href="../staffManage/deleteAdminInfo?id=${user.userid }"
+						href="../pet/deletePet?id=${pet.petid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>

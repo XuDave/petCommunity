@@ -21,7 +21,7 @@
 		<ul class="breadcrumb">
 			<li><a href="#">首页</a> <span class="divider"></span></li>
 			<li><a href="#">帖子管理</a> <span class="divider"></span></li>
-			<li class="active">帖子列表</li>
+			<li class="active">一级回复列表</li>
 		</ul>
 		<!-- 提醒框 -->
 		<div id="alert" style="display: none">
@@ -29,12 +29,12 @@
 				${processResult.processResultCode }</p>
 			<p id="info">${processResult.processResultDesc }</p>
 		</div>
-		<table class="table table-bordered table-hover" id="amdinList">
+\	<table class="table table-bordered table-hover" id="amdinList">
 			<thead>
 				<tr align="center">
 					<td>ID</td>
-					<td>标题</td>
 					<td>内容</td>
+				    <td>帖子ID</td>
 					<td>作者</td>
 					<td>更新时间</td>
 					<td>操作</td>
@@ -46,10 +46,10 @@
 					<td>${firstReply.firstreplycontent}</td>
 					<td>${firstReply.postid}</td>
 					<td>${firstReply.userid}</td>
-					<td><spring:eval expression="post.postupdatetime"></spring:eval></td>
+					<td><spring:eval expression="firstReply.firstreplyupdatetime"></spring:eval></td>
 					<td> <a
-						href="../firstReply/findByPost?${firstReply.firstreplyid}">查看</a> <a
-						href="../post/deletePost?id=${firstReply.firstreplyid}"
+						href="../secondReply/findByFirstReply?id=${firstReply.firstreplyid}">查看</a> <a
+						href="../post/deleteFirstReply?id=${firstReply.firstreplyid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>

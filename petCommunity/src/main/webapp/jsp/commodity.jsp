@@ -35,6 +35,7 @@
 					<td>ID</td>
 					<td>商品名</td>
 					<td>单价</td>
+					<td>数量</td>
 					<td>状态</td>
 					<td>更新时间</td>
 					<td>操作</td>
@@ -44,6 +45,7 @@
 				<tr align="center">
 					<td>${commodity.commodityid}</td>
 					<td>${commodity.commoditycontent}</td>
+					<td>${commodity.commoditycount}</td>
 					<td>${commodity.commodityprice}</td>
 					<td>${commodity.commoditystate}</td>
 					<td><spring:eval expression="commodity.commodityupdatetime"></spring:eval></td>
