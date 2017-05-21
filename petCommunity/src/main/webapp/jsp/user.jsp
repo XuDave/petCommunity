@@ -55,7 +55,7 @@
 					<td><spring:eval expression="user.userupdatetime"></spring:eval></td>
 					<td><a
 						href="../pet/findPetByUser?id=${user.userid }">查看</a> <a
-						href="../staffManage/deleteAdminInfo?id=${user.userid }"
+						href="#"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>

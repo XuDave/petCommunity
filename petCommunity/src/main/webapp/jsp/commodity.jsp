@@ -45,13 +45,13 @@
 				<tr align="center">
 					<td>${commodity.commodityid}</td>
 					<td>${commodity.commoditycontent}</td>
-					<td>${commodity.commoditycount}</td>
 					<td>${commodity.commodityprice}</td>
+					<td>${commodity.commoditycount}</td>
 					<td>${commodity.commoditystate}</td>
 					<td><spring:eval expression="commodity.commodityupdatetime"></spring:eval></td>
 					<td> <a
-						href="../staffManage/updateAdminByID/${commodity.commodityid}">更新</a> <a
-						href="../staffManage/deleteAdminInfo?id=${commodity.commodityid}"
+						href="#">更新</a> <a
+						href="#"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>

@@ -50,7 +50,7 @@
 					<td>${pet.petsex}</td>
 					<td>${pet.userid}</td>
 					<td><a
-						href="../pet/deletePet?id=${pet.petid}"
+						href="#"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>

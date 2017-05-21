@@ -44,7 +44,7 @@ public class PostServiceImpl implements IPostService {
 
 	@Override
 	public int deletePost(Integer pid) {
-		int i = postDao.deleteByUser(pid);
+		int i = postDao.deleteByPrimaryKey(pid);
 		return i;
 	}
 

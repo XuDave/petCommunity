@@ -29,7 +29,7 @@
 				${processResult.processResultCode }</p>
 			<p id="info">${processResult.processResultDesc }</p>
 		</div>
-\	<table class="table table-bordered table-hover" id="amdinList">
+	<table class="table table-bordered table-hover" id="amdinList">
 			<thead>
 				<tr align="center">
 					<td>ID</td>
@@ -49,7 +49,7 @@
 					<td><spring:eval expression="firstReply.firstreplyupdatetime"></spring:eval></td>
 					<td> <a
 						href="../secondReply/findByFirstReply?id=${firstReply.firstreplyid}">查看</a> <a
-						href="../post/deleteFirstReply?id=${firstReply.firstreplyid}"
+						href="../firstReply/deleteFirstReply?id=${firstReply.firstreplyid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
