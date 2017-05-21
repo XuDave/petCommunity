@@ -29,7 +29,7 @@
 				${processResult.processResultCode }</p>
 			<p id="info">${processResult.processResultDesc }</p>
 		</div>
-		<table class="table table-bordered table-hover" id="amdinList">
+		<table class="table table-bordered table-hover" id="commodityList">
 			<thead>
 				<tr align="center">
 					<td>ID</td>
@@ -50,8 +50,17 @@
 					<td>${commodity.commoditystate}</td>
 					<td><spring:eval expression="commodity.commodityupdatetime"></spring:eval></td>
 					<td> <a
-						href="#">更新</a> <a
-						href="#"
+						href="#">编辑</a>
+						<c:if test="${commodity.commoditystate==0}">
+						 <a
+						href="../commodity/upCommodity?id=${commodity.commodityid}">上架</a>
+						</c:if>
+						<c:if test="${commodity.commoditystate==1}">
+						 <a
+						href="../commodity/downCommodity?id=${commodity.commodityid}">下架</a>
+						</c:if>
+						 <a
+						href="../commodity/deleteCommodity?id=${commodity.commodityid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
@@ -59,5 +68,19 @@
 	</div>
 	<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 	<script src="${pageContext.request.contextPath}/js/alert.js"></script>
+	<script type="text/javascript">
+		var table = $("#commodityList");/*  获取表 */
+		var trs = table.find("tr");/* 获取表中tr标签数 */
+		console.info(trs.length);
+		for (var i = 1; i < trs.length; i++) {
+			var tag = $("tr").eq(i).find("td").eq(4).text();
+			console.info(tag);
+			if (tag == 0) {
+				$("tr").eq(i).find("td").eq(4).text( '下架');
+			}else{
+				$("tr").eq(i).find("td").eq(4).text( '上架');
+			}
+		}
+	</script>
 </body>
 </html>
