@@ -1,24 +1,6 @@
 /**
  * 
  */
-/* 判断登陆时输入的用户名是否存在 */
-function isExistingAdmin() {
-	var adminName = $("#adminName").val();
-	console.info(adminName);
-	$.get("http://localhost:8080/drug-manage/staffManage/getAllAdmin", "",
-			function(adminList) {
-				var arr = new Array();
-				for (var i = 0; i < adminList.length; i++) {
-					arr.push(adminList[i].adminName);
-				}
-				if ($.inArray(adminName.trim(), arr) == -1) {
-					$("#adminNameInfo")[0].innerHTML = "用户名不存在!";
-					$("#adminNameInfo").css("display", "block");
-					setTimeout("hideAdmin()", 3000);
-					$("#adminName").val("");
-				}
-			});
-}
 
 /* 判断登陆时输入的用户名、密码是否为空 */
 function isEmptyAdmin() {

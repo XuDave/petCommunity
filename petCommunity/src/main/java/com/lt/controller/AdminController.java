@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
 import com.lt.pojo.Admin;
 import com.lt.pojo.ProcessResult;
 import com.lt.service.IAdminService;
@@ -31,8 +32,10 @@ public class AdminController {
 		ProcessResult processResult = new ProcessResult();
 		try {
 			Admin ad = adminService.selectByName(admin.getAdminname());
+			System.out.println(JSON.toJSONString(admin));			
 			if (ad != null) {
-				if (ad.getPassword().equals(admin.getPassword())) {
+				System.out.println("密码"+ad.getPassword());
+				if ((ad.getPassword()).equals(admin.getPassword())) {
 					request.getSession().setAttribute("curAdmin", ad);
 					//httpSession.setAttribute("curAdmin", ad);
 					processResult.setProcessResultDesc("登陆成功！");
