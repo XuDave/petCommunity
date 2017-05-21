@@ -6,6 +6,8 @@ public class Pet {
     private String petname;
 
     private Integer pettypeid;
+    
+    private String pettypename;
 
     private Integer petage;
 
@@ -60,4 +62,13 @@ public class Pet {
     public void setUserid(Integer userid) {
         this.userid = userid;
     }
+
+	public String getPettypename() {
+		return pettypename;
+	}
+
+	public void setPettypename(String pettypename) {
+		this.pettypename = pettypename;
+	}
+    
 }

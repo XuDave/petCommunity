@@ -29,7 +29,7 @@
 				${processResult.processResultCode }</p>
 			<p id="info">${processResult.processResultDesc }</p>
 		</div>
-		<table class="table table-bordered table-hover" id="amdinList">
+		<table class="table table-bordered table-hover" id="petList">
 			<thead>
 				<tr align="center">
 					<td>ID</td>
@@ -37,7 +37,7 @@
 					<td>种类</td>
 					<td>年龄</td>
 					<td>性别</td>
-					<td>用户ID</td>
+			<!-- 		<td>用户ID</td> -->
 					<td>操作</td>
 				</tr>
 			</thead>
@@ -45,12 +45,12 @@
 				<tr align="center">
 					<td>${pet.petid}</td>
 					<td>${pet.petname}</td>
-					<td>${pet.pettypeid}</td>
+					<td>${pet.pettypename}</td>
 					<td>${pet.petage}</td>
 					<td>${pet.petsex}</td>
-					<td>${pet.userid}</td>
+			<%-- 		<td>${pet.userid}</td> --%>
 					<td><a
-						href="#"
+						href="../pet/deletePet?id=${pet.petid}"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
@@ -58,5 +58,19 @@
 	</div>
 	<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 	<script src="${pageContext.request.contextPath}/js/alert.js"></script>
+	<script type="text/javascript">
+		var table = $("#petList");/*  获取表 */
+		var trs = table.find("tr");/* 获取表中tr标签数 */
+		console.info(trs.length);
+		for (var i = 1; i < trs.length; i++) {
+			var tag = $("tr").eq(i).find("td").eq(4).text();
+			console.info(tag);
+			if (tag == 0) {
+				$("tr").eq(i).find("td").eq(4).text( '公');
+			}else{
+				$("tr").eq(i).find("td").eq(4).text( '母');
+			}
+		}
+	</script>
 </body>
 </html>

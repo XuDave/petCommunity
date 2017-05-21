@@ -30,7 +30,7 @@
 				<a class="navbar-brand" href="#">宠物社区后台管理系统</a>
 				<p style="margin-left: 1200px; margin-top: 15px">
 					${curAdmin.adminname } 您好，欢迎使用宠物社区后台管理系统
-					<a href="${pageContext.request.contextPath}/staffManage/loginout"
+					<a href="${pageContext.request.contextPath}/admin/logout"
 						onclick=""><i class="fa fa-power-off fa-1x"></i></a>
 				</p>
 			</div>
@@ -46,26 +46,16 @@
 							<ul class="nav nav-second-level">
 								<li><a
 									href="${pageContext.request.contextPath}/jsp/admin.jsp">修改密码</a></li>
-							</ul> <!-- /.nav-second-level --></li>
+							</ul> </li>
 							<li><a href="${pageContext.request.contextPath}/post/postList"><i class="fa fa-indent nav_icon"></i>帖子管理<span
 									class="fa arrow"></span></a>
 						   </li>
 							<li><a href="${pageContext.request.contextPath}/commodity/commodityList"><i class="fa fa-table nav_icon"></i>商品管理<span
 									class="fa arrow"></span></a>
-								<%-- <ul class="nav nav-second-level">
-									<li><a
-										href="${pageContext.request.contextPath}/inventoryManage/getAllInventoryInfo">库存列表</a></li>
-									<li><a
-										href="${pageContext.request.contextPath}/orderManage/getExaminedOrderInfo">出库订单</a></li>
-								</ul>  --%><!-- /.nav-second-level --></li>
+							</li>
 							<li><a href="${pageContext.request.contextPath}/user/userList"><i class="fa fa-user fa-fw nav_icon"></i>用户管理<span
 									class="fa arrow"></span></a>
-								<%-- <ul class="nav nav-second-level">
-									<li><a
-										href="${pageContext.request.contextPath}/staffManage/getAllAdminInfo">员工管理</a></li>
-									<li><a
-										href="${pageContext.request.contextPath}/customerManage/getAllCustomerInfo">客户管理</a></li>
-								</ul> --%> <!-- /.nav-second-level --></li>
+									</li>
 					</ul>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 package com.lt.controller;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class AdminController {
 	Logger logger = Logger.getLogger(AdminController.class);
 
 	@RequestMapping("/checkLogin")
-	public ModelAndView checkLogin(Admin admin, ModelMap model, HttpSession httpSession) {
+	public ModelAndView checkLogin(Admin admin, ModelMap model,  HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
 		// logger.info("用户为" + JSON.toJSONString(admin));
 		ProcessResult processResult = new ProcessResult();
@@ -33,7 +33,8 @@ public class AdminController {
 			Admin ad = adminService.selectByName(admin.getAdminname());
 			if (ad != null) {
 				if (ad.getPassword().equals(admin.getPassword())) {
-					httpSession.setAttribute("curAdmin", ad);
+					request.getSession().setAttribute("curAdmin", ad);
+					//httpSession.setAttribute("curAdmin", ad);
 					processResult.setProcessResultDesc("登陆成功！");
 					mv.setViewName("fontPage");
 				} else {
@@ -51,6 +52,17 @@ public class AdminController {
 		} finally {
 			model.addAttribute("processResult", processResult);
 		}
+		return mv;
+	}
+	
+	@RequestMapping("/logout")
+	public ModelAndView logout( HttpServletRequest request) {
+		ModelAndView mv = new ModelAndView();
+		if (request.getSession().getAttribute("curAdmin") != null) {
+			request.getSession().removeAttribute("curAdmin");
+			request.getSession().invalidate();
+		}
+		mv.setViewName("redirect:/login/login.jsp");	
 		return mv;
 	}
 

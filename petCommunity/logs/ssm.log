@@ -146,4 +146,55 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 9; columnNumber: 57; ÂøÖÈ°
   [INFO] [2017-05-21 09:52:23][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
   [INFO] [2017-05-21 09:52:24][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
   [INFO] [2017-05-21 09:52:24][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@5c084322: startup date [Sun May 21 09:52:23 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 21:17:43][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-21 21:17:44][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@771d0054: startup date [Sun May 21 21:17:44 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 21:17:44][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-21 21:17:44][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":1,"username":"test","userpassword":"test","usersex":0,"userupdatetime":1494779499000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":2,"username":"","userpassword":"","usersex":0,"userupdatetime":1494850583000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":3,"username":" Ê∑˛ Ê∑˛","userpassword":" « «","usersex":0,"userupdatetime":1494851010000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":4,"username":"À≥∑ÁÀ≥ÀÆ","userpassword":" « « «","usersex":0,"userupdatetime":1494851130000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":5,"username":"∞°∑¢∑¢","userpassword":"∞°∞°","usersex":0,"userupdatetime":1494851200000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":6,"username":"ddd","userpassword":"(null∑ ‡Ω‡Ω)","usersex":0,"userupdatetime":1494854988000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":7,"username":"∑¢¥Ô","userpassword":"(null)∞°","usersex":0,"userupdatetime":1494855176000}
+  [INFO] [2017-05-21 21:17:44][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":8,"username":"∞¢∑¢","userpassword":"(null)∂•∂•∂•∂•","usersex":0,"userupdatetime":1494855219000}
+  [INFO] [2017-05-21 21:17:45][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@771d0054: startup date [Sun May 21 21:17:44 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:37:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-21 22:37:36][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@4e9222f0: startup date [Sun May 21 22:37:36 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:37:36][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-21 22:37:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":1,"username":"test","userpassword":"test","usersex":0,"userupdatetime":1494779499000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":2,"username":"","userpassword":"","usersex":0,"userupdatetime":1494850583000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":3,"username":"ËàíÊúçËàíÊúç","userpassword":"ÊòØÊòØ","usersex":0,"userupdatetime":1494851010000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":4,"username":"È°∫È£éÈ°∫Ê∞¥","userpassword":"ÊòØÊòØÊòØ","usersex":0,"userupdatetime":1494851130000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":5,"username":"???","userpassword":"123","usersex":0,"userupdatetime":1494851200000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":6,"username":"ddd","userpassword":"123","usersex":0,"userupdatetime":1494854988000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":7,"username":"ÂèëËææ","userpassword":"(null)Âïä","usersex":0,"userupdatetime":1494855176000}
+  [INFO] [2017-05-21 22:37:37][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":8,"username":"??","userpassword":"123","usersex":0,"userupdatetime":1494855219000}
+  [INFO] [2017-05-21 22:37:37][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@4e9222f0: startup date [Sun May 21 22:37:36 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:46:14][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-21 22:46:14][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@7e4736ab: startup date [Sun May 21 22:46:14 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:46:15][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-21 22:46:15][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":1,"username":"test","userpassword":"test","usersex":0,"userupdatetime":1494779499000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":2,"username":"","userpassword":"","usersex":0,"userupdatetime":1494850583000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":3,"username":"ËàíÊúçËàíÊúç","userpassword":"ÊòØÊòØ","usersex":0,"userupdatetime":1494851010000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":4,"username":"È°∫È£éÈ°∫Ê∞¥","userpassword":"ÊòØÊòØÊòØ","usersex":0,"userupdatetime":1494851130000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":5,"username":"???","userpassword":"123","usersex":0,"userupdatetime":1494851200000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":6,"username":"ddd","userpassword":"123","usersex":0,"userupdatetime":1494854988000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":7,"username":"ÂèëËææ","userpassword":"123","usersex":0,"userupdatetime":1494855176000}
+  [INFO] [2017-05-21 22:46:15][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":8,"username":"??","userpassword":"123","usersex":0,"userupdatetime":1494855219000}
+  [INFO] [2017-05-21 22:46:15][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@7e4736ab: startup date [Sun May 21 22:46:14 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:48:39][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-21 22:48:40][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3bb779cf: startup date [Sun May 21 22:48:40 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:48:40][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-21 22:48:40][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-21 22:48:41][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3bb779cf: startup date [Sun May 21 22:48:40 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:48:55][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-21 22:48:55][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@3bb779cf: startup date [Sun May 21 22:48:55 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-21 22:48:55][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-21 22:48:55][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-21 22:48:56][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+  [INFO] [2017-05-21 22:48:56][org.springframework.jdbc.support.SQLErrorCodesFactory]SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]
+  [INFO] [2017-05-21 22:48:56][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@3bb779cf: startup date [Sun May 21 22:48:55 CST 2017]; root of context hierarchy
   

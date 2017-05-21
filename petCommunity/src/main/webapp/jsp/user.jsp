@@ -29,7 +29,7 @@
 				${processResult.processResultCode }</p>
 			<p id="info">${processResult.processResultDesc }</p>
 		</div>
-		<table class="table table-bordered table-hover" id="amdinList">
+		<table class="table table-bordered table-hover" id="userList">
 			<thead>
 				<tr align="center">
 					<td>ID</td>
@@ -54,8 +54,12 @@
 					<td>${user.useraddress}</td>
 					<td><spring:eval expression="user.userupdatetime"></spring:eval></td>
 					<td><a
-						href="../pet/findPetByUser?id=${user.userid }">查看</a> <a
-						href="#"
+						href="../pet/findPetByUser?id=${user.userid }">查看</a>
+						<a
+						href="../user/resetPsd?id=${user.userid }"
+						onclick="return confirm('确定重置密码?');">重置密码</a>
+						 <a
+						href="../user/deleteUser?id=${user.userid }"
 						onclick="return confirm('确定删除?');">删除</a></td>
 				</tr>
 			</c:forEach>
@@ -63,5 +67,19 @@
 	</div>
 	<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 	<script src="${pageContext.request.contextPath}/js/alert.js"></script>
+	<script type="text/javascript">
+		var table = $("#userList");/*  获取表 */
+		var trs = table.find("tr");/* 获取表中tr标签数 */
+		console.info(trs.length);
+		for (var i = 1; i < trs.length; i++) {
+			var tag = $("tr").eq(i).find("td").eq(3).text();
+			console.info(tag);
+			if (tag == 0) {
+				$("tr").eq(i).find("td").eq(3).text( '男');
+			}else{
+				$("tr").eq(i).find("td").eq(3).text( '女');
+			}
+		}
+	</script>
 </body>
 </html>
