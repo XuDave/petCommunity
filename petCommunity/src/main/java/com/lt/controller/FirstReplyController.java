@@ -32,7 +32,7 @@ public class FirstReplyController {
 	private Logger logger = Logger.getLogger(FirstReplyController.class);
 
 	@RequestMapping("/findByPost")
-	public ModelAndView findByPost(@RequestParam("id") Integer id, ModelMap model) {
+	public ModelAndView findByPost(@RequestParam("id") String id, ModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		List<FirstReply> firstReplyList = firstReplyService.selectFirstReplyByPostId(id);
 		System.out.println("一级回复条数：" + firstReplyList.size());
@@ -43,7 +43,7 @@ public class FirstReplyController {
 
 	@RequestMapping("/deleteFirstReply")
 	@Transactional
-	public ModelAndView deletePost(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView deletePost(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		System.out.println("删除的id:" + id);

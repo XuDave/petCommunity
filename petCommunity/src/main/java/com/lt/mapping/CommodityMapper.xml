@@ -2,15 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lt.dao.ICommodityDao" >
   <resultMap id="BaseResultMap" type="com.lt.pojo.Commodity" >
-    <id column="CommodityId" property="commodityid" jdbcType="INTEGER" />
+    <id column="CommodityId" property="commodityid" jdbcType="VARCHAR" />
     <result column="CommodityPrice" property="commodityprice" jdbcType="DECIMAL" />
     <result column="CommodityContent" property="commoditycontent" jdbcType="VARCHAR" />
     <result column="CommodityCount" property="commoditycount" jdbcType="INTEGER" />
     <result column="CommodityState" property="commoditystate" jdbcType="INTEGER" />
+    <result column="CommodityImagePath" property="commodityimagepath" jdbcType="VARCHAR" />
     <result column="CommodityUpdateTime" property="commodityupdatetime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    CommodityId, CommodityPrice, CommodityContent, CommodityCount, CommodityState, CommodityUpdateTime
+    CommodityId, CommodityPrice, CommodityContent, CommodityCount, CommodityState, CommodityImagePath, CommodityUpdateTime
   </sql>
   
   <select id="selectAllCommodities" resultMap="BaseResultMap">
@@ -19,22 +20,22 @@
     from commodity
   </select>
   
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from commodity
-    where CommodityId = #{commodityid,jdbcType=INTEGER}
+    where CommodityId = #{commodityid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from commodity
-    where CommodityId = #{commodityid,jdbcType=INTEGER}
+    where CommodityId = #{commodityid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.lt.pojo.Commodity" >
     insert into commodity (CommodityId, CommodityPrice, CommodityContent, 
-      CommodityCount, CommodityState, CommodityUpdateTime
+      CommodityCount, CommodityState, CommodityImagePath,CommodityUpdateTime
       )
-    values (#{commodityid,jdbcType=INTEGER}, #{commodityprice,jdbcType=DECIMAL}, #{commoditycontent,jdbcType=VARCHAR}, 
-      #{commoditycount,jdbcType=INTEGER}, #{commoditystate,jdbcType=INTEGER}, #{commodityupdatetime,jdbcType=TIMESTAMP}
+    values (#{commodityid,jdbcType=VARCHAR}, #{commodityprice,jdbcType=DECIMAL}, #{commoditycontent,jdbcType=VARCHAR}, 
+      #{commoditycount,jdbcType=INTEGER}, #{commoditystate,jdbcType=INTEGER}, #{commodityimagepath,jdbcType=VARCHAR},#{commodityupdatetime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.lt.pojo.Commodity" >
@@ -55,13 +56,16 @@
       <if test="commoditystate != null" >
         CommodityState,
       </if>
+       <if test="commodityimagepath != null" >
+        CommodityImagePath,
+      </if>
       <if test="commodityupdatetime != null" >
         CommodityUpdateTime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="commodityid != null" >
-        #{commodityid,jdbcType=INTEGER},
+        #{commodityid,jdbcType=VARCHAR},
       </if>
       <if test="commodityprice != null" >
         #{commodityprice,jdbcType=DECIMAL},
@@ -75,6 +79,9 @@
       <if test="commoditystate != null" >
         #{commoditystate,jdbcType=INTEGER},
       </if>
+      <if test="commodityimagepath != null" >
+       #{commodityimagepath,jdbcType=VARCHAR},
+       </if>
       <if test="commodityupdatetime != null" >
         #{commodityupdatetime,jdbcType=TIMESTAMP},
       </if>
@@ -95,11 +102,14 @@
       <if test="commoditystate != null" >
         CommodityState = #{commoditystate,jdbcType=INTEGER},
       </if>
+      <if test="commodityimagepath != null" >
+       CommodityImagePath = #{commodityimagepath,jdbcType=VARCHAR},
+       </if>
       <if test="commodityupdatetime != null" >
         CommodityUpdateTime = #{commodityupdatetime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where CommodityId = #{commodityid,jdbcType=INTEGER}
+    where CommodityId = #{commodityid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Commodity" >
     update commodity
@@ -107,7 +117,8 @@
       CommodityContent = #{commoditycontent,jdbcType=VARCHAR},
       CommodityCount = #{commoditycount,jdbcType=INTEGER},
       CommodityState = #{commoditystate,jdbcType=INTEGER},
+      CommodityImagePath =  #{commodityimagepath,jdbcType=VARCHAR},
       CommodityUpdateTime = #{commodityupdatetime,jdbcType=TIMESTAMP}
-    where CommodityId = #{commodityid,jdbcType=INTEGER}
+    where CommodityId = #{commodityid,jdbcType=VARCHAR}
   </update>
 </mapper>

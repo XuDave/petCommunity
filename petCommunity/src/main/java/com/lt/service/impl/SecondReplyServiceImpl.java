@@ -21,17 +21,17 @@ public class SecondReplyServiceImpl implements ISecondReplyService {
 	}
 
 	@Override
-	public SecondReply selectSecondReplyById(Integer sId) {
+	public SecondReply selectSecondReplyById(String sId) {
 		return secondReplyDao.selectByPrimaryKey(sId);
 	}
 
 	@Override
-	public List<SecondReply> selectSecondReplyByFirstReplyId(Integer fId) {
+	public List<SecondReply> selectSecondReplyByFirstReplyId(String fId) {
 		return secondReplyDao.selectAllSecondRepliesByFirstReply(fId);
 	}
 
 	@Override
-	public List<SecondReply> selectSecondReplyByUserId(Integer uId) {
+	public List<SecondReply> selectSecondReplyByUserId(String uId) {
 		return secondReplyDao.selectAllSecondRepliesByUserId(uId);
 	}
 
@@ -48,19 +48,19 @@ public class SecondReplyServiceImpl implements ISecondReplyService {
 	}
 
 	@Override
-	public int deleteSecondReply(Integer sId) {
+	public int deleteSecondReply(String sId) {
 		int i = secondReplyDao.deleteByPrimaryKey(sId);
 		return i;
 	}
 
 	@Override
-	public int deleteSecondReplyByFirstReply(Integer fId) {
+	public int deleteSecondReplyByFirstReply(String fId) {
 		int i = secondReplyDao.deleteByFirstReply(fId);
 		return i;
 	}
 
 	@Override
-	public int deleteSecondReplyByUser(Integer uId) {
+	public int deleteSecondReplyByUser(String uId) {
 		int i = secondReplyDao.deleteByUserId(uId);
 		return i;
 	}

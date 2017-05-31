@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lt.dao.IPostDao" >
   <resultMap id="BaseResultMap" type="com.lt.pojo.Post" >
-    <id column="PostId" property="postid" jdbcType="INTEGER" />
-    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <id column="PostId" property="postid" jdbcType="VARCHAR" />
+    <result column="UserId" property="userid" jdbcType="VARCHAR" />
     <result column="PostTitle" property="posttitle" jdbcType="VARCHAR" />
     <result column="PostContent" property="postcontent" jdbcType="VARCHAR" />
     <result column="PostImagePath" property="postimagepath" jdbcType="VARCHAR" />
@@ -20,36 +20,36 @@
     from post
   </select>
   
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from post
-    where PostId = #{postid,jdbcType=INTEGER}
+    where PostId = #{postid,jdbcType=VARCHAR}
   </select>
   
     <!-- 根据用户查询相应的帖子 -->
-  <select id="selectPostsByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectPostsByUser" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from post
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </select>
   
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from post
-    where PostId = #{postid,jdbcType=INTEGER}
+    where PostId = #{postid,jdbcType=VARCHAR}
   </delete>
     <!-- 根据用户删除相应的帖子 -->
-  <delete id="deleteByUser"  parameterType="java.lang.Integer">
+  <delete id="deleteByUser"  parameterType="java.lang.String">
    delete from post
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </delete>
   
   <insert id="insert" parameterType="com.lt.pojo.Post" >
     insert into post (PostId, UserId, PostTitle, 
       PostContent, PostImagePath, PostUpdateTime
       )
-    values (#{postid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{posttitle,jdbcType=VARCHAR}, 
+    values (#{postid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{posttitle,jdbcType=VARCHAR}, 
       #{postcontent,jdbcType=VARCHAR}, #{postimagepath,jdbcType=VARCHAR}, #{postupdatetime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -77,10 +77,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="postid != null" >
-        #{postid,jdbcType=INTEGER},
+        #{postid,jdbcType=VARCHAR},
       </if>
       <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+        #{userid,jdbcType=VARCHAR},
       </if>
       <if test="posttitle != null" >
         #{posttitle,jdbcType=VARCHAR},
@@ -100,7 +100,7 @@
     update post
     <set >
       <if test="userid != null" >
-        UserId = #{userid,jdbcType=INTEGER},
+        UserId = #{userid,jdbcType=VARCHAR},
       </if>
       <if test="posttitle != null" >
         PostTitle = #{posttitle,jdbcType=VARCHAR},
@@ -115,15 +115,15 @@
         PostUpdateTime = #{postupdatetime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where PostId = #{postid,jdbcType=INTEGER}
+    where PostId = #{postid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Post" >
     update post
-    set UserId = #{userid,jdbcType=INTEGER},
+    set UserId = #{userid,jdbcType=VARCHAR},
       PostTitle = #{posttitle,jdbcType=VARCHAR},
       PostContent = #{postcontent,jdbcType=VARCHAR},
       PostImagePath = #{postimagepath,jdbcType=VARCHAR},
       PostUpdateTime = #{postupdatetime,jdbcType=TIMESTAMP}
-    where PostId = #{postid,jdbcType=INTEGER}
+    where PostId = #{postid,jdbcType=VARCHAR}
   </update>
 </mapper>

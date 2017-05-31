@@ -24,7 +24,7 @@ public class SecondReplyController {
 	private Logger logger = Logger.getLogger(SecondReplyController.class);
 	
 	@RequestMapping("/findByFirstReply")
-	public ModelAndView findByFirstReply(@RequestParam("id")Integer id,ModelMap model){
+	public ModelAndView findByFirstReply(@RequestParam("id")String id,ModelMap model){
 		ModelAndView mv = new ModelAndView();
 		List<SecondReply> secondReplyList = secondReplyService.selectSecondReplyByFirstReplyId(id);
 		model.addAttribute("secondReplyList", secondReplyList);
@@ -34,7 +34,7 @@ public class SecondReplyController {
 	}
 	
 	@RequestMapping("/deleteSecondReply")
-	public ModelAndView deleteSecondReply(Integer id,RedirectAttributesModelMap model){
+	public ModelAndView deleteSecondReply(String id,RedirectAttributesModelMap model){
 		ModelAndView mv = new ModelAndView();
 		logger.info("二级回复id："+id);
 		ProcessResult processResult = new ProcessResult();

@@ -19,7 +19,7 @@ public interface ICommodityService {
 	 * @param cid
 	 * @return
 	 */
-	Commodity selectCommodityById(Integer cid);
+	Commodity selectCommodityById(String cid);
 	
 	/**
 	 * 添加商品
@@ -43,6 +43,6 @@ public interface ICommodityService {
 	 * @param cid
 	 * @return
 	 */
-	int deleteCommodity(Integer cid);
+	int deleteCommodity(String cid);
 	
 }

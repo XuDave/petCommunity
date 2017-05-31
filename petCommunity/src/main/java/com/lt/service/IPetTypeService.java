@@ -18,7 +18,7 @@ public interface IPetTypeService {
      * @param tId
      * @return
      */
-    PetType selectPetType(Integer tId);
+    PetType selectPetType(String tId);
     
     /**
      * 添加宠物种类
@@ -42,5 +42,5 @@ public interface IPetTypeService {
      * @param tId
      * @return
      */
-    int deletePetType(Integer tId);
+    int deletePetType(String tId);
 }

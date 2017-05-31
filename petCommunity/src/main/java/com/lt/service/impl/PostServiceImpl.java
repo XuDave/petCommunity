@@ -21,12 +21,12 @@ public class PostServiceImpl implements IPostService {
 	}
 
 	@Override
-	public Post selectPostsById(Integer pid) {
+	public Post selectPostsById(String pid) {
 		return postDao.selectByPrimaryKey(pid);
 	}
 
 	@Override
-	public List<Post> selectPostsByUser(Integer uid) {
+	public List<Post> selectPostsByUser(String uid) {
 		return postDao.selectPostsByUser(uid);
 	}
 
@@ -43,13 +43,13 @@ public class PostServiceImpl implements IPostService {
 	}
 
 	@Override
-	public int deletePost(Integer pid) {
+	public int deletePost(String pid) {
 		int i = postDao.deleteByPrimaryKey(pid);
 		return i;
 	}
 
 	@Override
-	public int deletePostByUser(Integer uid) {
+	public int deletePostByUser(String uid) {
 		int i = postDao.deleteByUser(uid);
 		return i;
 	}

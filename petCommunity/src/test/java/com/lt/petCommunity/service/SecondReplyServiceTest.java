@@ -24,7 +24,7 @@ public class SecondReplyServiceTest {
 	
 	@Test
 	public void testFindByFirst(){
-		List<SecondReply> list = secondReplyService.selectSecondReplyByFirstReplyId(1);
+		List<SecondReply> list = secondReplyService.selectSecondReplyByFirstReplyId("1");
 		System.out.println(list.size());
 	}
 }

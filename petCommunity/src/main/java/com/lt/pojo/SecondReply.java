@@ -5,28 +5,30 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class SecondReply {
-    private Integer secondreplyid;
+    private String secondreplyid;
 
     private String secondreplycontent;
 
-    private Integer firstreplyid;
+    private String firstreplyid;
 
-    private Integer userid;
+    private String userid;
 
-    private Integer pointeruserid;
+    private String pointeruserid;
 
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date secondreplyupdatetime;
+   
+    
 
-    public Integer getSecondreplyid() {
-        return secondreplyid;
-    }
+    public String getSecondreplyid() {
+		return secondreplyid;
+	}
 
-    public void setSecondreplyid(Integer secondreplyid) {
-        this.secondreplyid = secondreplyid;
-    }
+	public void setSecondreplyid(String secondreplyid) {
+		this.secondreplyid = secondreplyid;
+	}
 
-    public String getSecondreplycontent() {
+	public String getSecondreplycontent() {
         return secondreplycontent;
     }
 
@@ -34,31 +36,31 @@ public class SecondReply {
         this.secondreplycontent = secondreplycontent == null ? null : secondreplycontent.trim();
     }
 
-    public Integer getFirstreplyid() {
-        return firstreplyid;
-    }
+    public String getFirstreplyid() {
+		return firstreplyid;
+	}
 
-    public void setFirstreplyid(Integer firstreplyid) {
-        this.firstreplyid = firstreplyid;
-    }
+	public void setFirstreplyid(String firstreplyid) {
+		this.firstreplyid = firstreplyid;
+	}
 
-    public Integer getUserid() {
-        return userid;
-    }
+	public String getUserid() {
+		return userid;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
-    public Integer getPointeruserid() {
-        return pointeruserid;
-    }
+	public String getPointeruserid() {
+		return pointeruserid;
+	}
 
-    public void setPointeruserid(Integer pointeruserid) {
-        this.pointeruserid = pointeruserid;
-    }
+	public void setPointeruserid(String pointeruserid) {
+		this.pointeruserid = pointeruserid;
+	}
 
-    public Date getSecondreplyupdatetime() {
+	public Date getSecondreplyupdatetime() {
         return secondreplyupdatetime;
     }
 

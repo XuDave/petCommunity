@@ -21,7 +21,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public User selectUserById(Integer uid) {
+	public User selectUserById(String uid) {
 		return userDao.selectByPrimaryKey(uid);
 	}
 
@@ -38,7 +38,7 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	@Override
-	public int deleteUser(Integer uid) {
+	public int deleteUser(String uid) {
 		int i = userDao.deleteByPrimaryKey(uid);
 		return i;
 	}

@@ -46,7 +46,7 @@ public class PostController {
 
 	@RequestMapping("/deletePost")
 	@Transactional
-	public ModelAndView deletePost(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView deletePost(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		System.out.println("删除的id:" + id);

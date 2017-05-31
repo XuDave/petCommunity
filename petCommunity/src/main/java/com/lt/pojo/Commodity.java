@@ -6,64 +6,75 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Commodity {
-    private Integer commodityid;
+	private String commodityid;
 
-    private BigDecimal commodityprice;
+	private BigDecimal commodityprice;
 
-    private String commoditycontent;
+	private String commoditycontent;
 
-    private Integer commoditycount;
+	private Integer commoditycount;
 
-    private Integer commoditystate;
+	private String commodityimagepath;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date commodityupdatetime;
+	private Integer commoditystate;
 
-    public Integer getCommodityid() {
-        return commodityid;
-    }
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date commodityupdatetime;
 
-    public void setCommodityid(Integer commodityid) {
-        this.commodityid = commodityid;
-    }
+	public String getCommodityid() {
+		return commodityid;
+	}
 
-    public BigDecimal getCommodityprice() {
-        return commodityprice;
-    }
+	public void setCommodityid(String commodityid) {
+		this.commodityid = commodityid;
+	}
 
-    public void setCommodityprice(BigDecimal commodityprice) {
-        this.commodityprice = commodityprice;
-    }
+	public BigDecimal getCommodityprice() {
+		return commodityprice;
+	}
 
-    public String getCommoditycontent() {
-        return commoditycontent;
-    }
+	public void setCommodityprice(BigDecimal commodityprice) {
+		this.commodityprice = commodityprice;
+	}
 
-    public void setCommoditycontent(String commoditycontent) {
-        this.commoditycontent = commoditycontent == null ? null : commoditycontent.trim();
-    }
+	public String getCommoditycontent() {
+		return commoditycontent;
+	}
 
-    public Integer getCommoditycount() {
-        return commoditycount;
-    }
+	public void setCommoditycontent(String commoditycontent) {
+		this.commoditycontent = commoditycontent == null ? null : commoditycontent.trim();
+	}
 
-    public void setCommoditycount(Integer commoditycount) {
-        this.commoditycount = commoditycount;
-    }
+	
+	public String getCommodityimagepath() {
+		return commodityimagepath;
+	}
 
-    public Integer getCommoditystate() {
-        return commoditystate;
-    }
+	public void setCommodityimagepath(String commodityimagepath) {
+		this.commodityimagepath = commodityimagepath;
+	}
 
-    public void setCommoditystate(Integer commoditystate) {
-        this.commoditystate = commoditystate;
-    }
+	public Integer getCommoditycount() {
+		return commoditycount;
+	}
 
-    public Date getCommodityupdatetime() {
-        return commodityupdatetime;
-    }
+	public void setCommoditycount(Integer commoditycount) {
+		this.commoditycount = commoditycount;
+	}
 
-    public void setCommodityupdatetime(Date commodityupdatetime) {
-        this.commodityupdatetime = commodityupdatetime;
-    }
+	public Integer getCommoditystate() {
+		return commoditystate;
+	}
+
+	public void setCommoditystate(Integer commoditystate) {
+		this.commoditystate = commoditystate;
+	}
+
+	public Date getCommodityupdatetime() {
+		return commodityupdatetime;
+	}
+
+	public void setCommodityupdatetime(Date commodityupdatetime) {
+		this.commodityupdatetime = commodityupdatetime;
+	}
 }

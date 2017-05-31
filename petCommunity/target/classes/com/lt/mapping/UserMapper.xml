@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lt.dao.IUserDao" >
   <resultMap id="BaseResultMap" type="com.lt.pojo.User" >
-    <id column="UserId" property="userid" jdbcType="INTEGER" />
+    <id column="UserId" property="userid" jdbcType="VARCHAR" />
     <result column="UserName" property="username" jdbcType="VARCHAR" />
     <result column="UserPassword" property="userpassword" jdbcType="VARCHAR" />
     <result column="UserSex" property="usersex" jdbcType="INTEGER" />
@@ -19,21 +19,21 @@
     <include refid="Base_Column_List" />
     from user
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from user
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from user
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.lt.pojo.User" >
     insert into user (UserId, UserName, UserPassword, 
       UserSex, UserAge, UserPhone, 
       UserAddress, UserUpdateTime)
-    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
       #{usersex,jdbcType=INTEGER}, #{userage,jdbcType=INTEGER}, #{userphone,jdbcType=VARCHAR}, 
       #{useraddress,jdbcType=VARCHAR}, #{userupdatetime,jdbcType=TIMESTAMP})
   </insert>
@@ -67,7 +67,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+        #{userid,jdbcType=VARCHAR},
       </if>
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
@@ -117,7 +117,7 @@
         UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lt.pojo.User" >
     update user
@@ -128,6 +128,6 @@
       UserPhone = #{userphone,jdbcType=VARCHAR},
       UserAddress = #{useraddress,jdbcType=VARCHAR},
       UserUpdateTime = #{userupdatetime,jdbcType=TIMESTAMP}
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </update>
 </mapper>

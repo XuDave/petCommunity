@@ -2,6 +2,7 @@ package com.lt.controller;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class CommodityController {
 	}
 
 	@RequestMapping("/deleteCommodity")
-	public ModelAndView deleteCommodity(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView deleteCommodity(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		try {
@@ -64,7 +65,7 @@ public class CommodityController {
 	}
 
 	@RequestMapping("/upCommodity")
-	public ModelAndView upCommodity(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView upCommodity(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		try {
@@ -91,7 +92,7 @@ public class CommodityController {
 	}
 
 	@RequestMapping("/downCommodity")
-	public ModelAndView downCommodity(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView downCommodity(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		try {
@@ -118,6 +119,9 @@ public class CommodityController {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		try {
+			String uuid = UUID.randomUUID().toString();
+			System.out.println("随机生成的uuid:"+uuid);
+			commodity.setCommodityid(uuid);
 			commodity.setCommodityupdatetime(new Date());
             logger.info(JSON.toJSONString(commodity));
 			int i = commodityService.insertCommodity(commodity);

@@ -8,17 +8,17 @@ public interface IPostDao {
 	
 	List<Post> selectAllPosts();
 	
-	List<Post> selectPostsByUser(Integer userId);
+	List<Post> selectPostsByUser(String userId);
 	
-    int deleteByPrimaryKey(Integer postid);
+    int deleteByPrimaryKey(String postid);
     
-    int deleteByUser(Integer userId);
+    int deleteByUser(String userId);
 
     int insert(Post record);
 
     int insertSelective(Post record);
 
-    Post selectByPrimaryKey(Integer postid);
+    Post selectByPrimaryKey(String postid);
 
     int updateByPrimaryKeySelective(Post record);
 

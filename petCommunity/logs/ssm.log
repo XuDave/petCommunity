@@ -207,4 +207,9 @@ Caused by: org.xml.sax.SAXParseException; lineNumber: 9; columnNumber: 57; å¿…é¡
   [INFO] [2017-05-22 00:29:04][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":6,"username":"ddd","userpassword":"123","usersex":0,"userupdatetime":1494854988000}
   [INFO] [2017-05-22 00:29:04][com.lt.petCommunity.dao.UserDaoTest]{"userage":0,"userid":7,"username":"·¢´ï","userpassword":"123","usersex":0,"userupdatetime":1494855176000}
   [INFO] [2017-05-22 00:29:04][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@4edc8de9: startup date [Mon May 22 00:29:03 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-23 23:31:38][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring/spring-mybatis.xml]
+  [INFO] [2017-05-23 23:31:38][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@68e4a47: startup date [Tue May 23 23:31:38 CST 2017]; root of context hierarchy
+  [INFO] [2017-05-23 23:31:39][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-05-23 23:31:39][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-05-23 23:31:40][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@68e4a47: startup date [Tue May 23 23:31:38 CST 2017]; root of context hierarchy
   

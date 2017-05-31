@@ -21,17 +21,17 @@ public class FirstReplyServiceImpl implements IFirstReplyService {
 	}
 
 	@Override
-	public FirstReply selectFirstReply(Integer fid) {
+	public FirstReply selectFirstReply(String fid) {
 		return firstReplyDao.selectByPrimaryKey(fid);
 	}
 
 	@Override
-	public List<FirstReply> selectFirstReplyByPostId(Integer pId) {
+	public List<FirstReply> selectFirstReplyByPostId(String pId) {
 		return firstReplyDao.selectAllFirstRepliesByPostId(pId);
 	}
 
 	@Override
-	public List<FirstReply> selectFirstReplyByUserId(Integer uId) {
+	public List<FirstReply> selectFirstReplyByUserId(String uId) {
 		return firstReplyDao.selectAllFirstRepliesByUserId(uId);
 	}
 
@@ -48,19 +48,19 @@ public class FirstReplyServiceImpl implements IFirstReplyService {
 	}
 
 	@Override
-	public int deleteFirstReply(Integer fid) {
+	public int deleteFirstReply(String fid) {
 	    int i = firstReplyDao.deleteByPrimaryKey(fid);
 		return i;
 	}
 
 	@Override
-	public int deleteFirstReplyByPostId(Integer pId) {
+	public int deleteFirstReplyByPostId(String pId) {
 	    int i = firstReplyDao.deleteByPostId(pId);
 		return i ;
 	}
 
 	@Override
-	public int deleteFirstReplyByUserId(Integer uid) {
+	public int deleteFirstReplyByUserId(String uid) {
 		int i = firstReplyDao.deleteByUserId(uid);
 		return i;
 	}

@@ -8,13 +8,13 @@ public interface IPetTypeDao {
 	
 	List<PetType> selectAllPetTypes();
 	
-    int deleteByPrimaryKey(Integer pettypeid);
+    int deleteByPrimaryKey(String pettypeid);
 
     int insert(PetType record);
 
     int insertSelective(PetType record);
 
-    PetType selectByPrimaryKey(Integer pettypeid);
+    PetType selectByPrimaryKey(String pettypeid);
 
     int updateByPrimaryKeySelective(PetType record);
 

@@ -2,12 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lt.dao.IPetDao" >
   <resultMap id="BaseResultMap" type="com.lt.pojo.Pet" >
-    <id column="PetId" property="petid" jdbcType="INTEGER" />
+    <id column="PetId" property="petid" jdbcType="VARCHAR" />
     <result column="PetName" property="petname" jdbcType="VARCHAR" />
     <result column="PetTypeId" property="pettypeid" jdbcType="INTEGER" />
-    <result column="PetAge" property="petage" jdbcType="INTEGER" />
+    <result column="PetAge" property="petage" jdbcType="VARCHAR" />
     <result column="PetSex" property="petsex" jdbcType="INTEGER" />
-    <result column="UserId" property="userid" jdbcType="INTEGER" />
+    <result column="UserId" property="userid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     PetId, PetName, PetTypeId, PetAge, PetSex, UserId
@@ -20,18 +20,18 @@
     from pet
   </select>
   <!-- 根据主键查询宠物 -->
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from pet
-    where PetId = #{petid,jdbcType=INTEGER}
+    where PetId = #{petid,jdbcType=VARCHAR}
   </select>
    <!-- 根据用户查询相应的宠物 -->
-  <select id="selectPetsByUser" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectPetsByUser" resultMap="BaseResultMap" parameterType="java.lang.String" >
      select 
     <include refid="Base_Column_List" />
     from pet
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </select>
   
   <!-- 根据宠物类型查询所有的宠物 -->
@@ -39,26 +39,26 @@
     select 
     <include refid="Base_Column_List" />
     from pet
-    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+    where PetTypeId = #{pettypeid,jdbcType=VARCHAR}
   </select>
   
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from pet
-    where PetId = #{petid,jdbcType=INTEGER}
+    where PetId = #{petid,jdbcType=VARCHAR}
   </delete>
   
    <!-- 根据用户删除相应的宠物 -->
-  <delete id="deleteByUserId" parameterType="java.lang.Integer">
+  <delete id="deleteByUserId" parameterType="java.lang.String">
     delete from pet
-    where UserId = #{userid,jdbcType=INTEGER}
+    where UserId = #{userid,jdbcType=VARCHAR}
   </delete>
   
   <insert id="insert" parameterType="com.lt.pojo.Pet" >
     insert into pet (PetId, PetName, PetTypeId, 
       PetAge, PetSex, UserId
       )
-    values (#{petid,jdbcType=INTEGER}, #{petname,jdbcType=VARCHAR}, #{pettypeid,jdbcType=INTEGER}, 
-      #{petage,jdbcType=INTEGER}, #{petsex,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}
+    values (#{petid,jdbcType=VARCHAR}, #{petname,jdbcType=VARCHAR}, #{pettypeid,jdbcType=VARCHAR}, 
+      #{petage,jdbcType=VARCHAR}, #{petsex,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.lt.pojo.Pet" >
@@ -85,22 +85,22 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="petid != null" >
-        #{petid,jdbcType=INTEGER},
+        #{petid,jdbcType=VARCHAR},
       </if>
       <if test="petname != null" >
         #{petname,jdbcType=VARCHAR},
       </if>
       <if test="pettypeid != null" >
-        #{pettypeid,jdbcType=INTEGER},
+        #{pettypeid,jdbcType=VARCHAR},
       </if>
       <if test="petage != null" >
-        #{petage,jdbcType=INTEGER},
+        #{petage,jdbcType=VARCHAR},
       </if>
       <if test="petsex != null" >
         #{petsex,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
+        #{userid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -111,27 +111,27 @@
         PetName = #{petname,jdbcType=VARCHAR},
       </if>
       <if test="pettypeid != null" >
-        PetTypeId = #{pettypeid,jdbcType=INTEGER},
+        PetTypeId = #{pettypeid,jdbcType=VARCHAR},
       </if>
       <if test="petage != null" >
-        PetAge = #{petage,jdbcType=INTEGER},
+        PetAge = #{petage,jdbcType=VARCHAR},
       </if>
       <if test="petsex != null" >
         PetSex = #{petsex,jdbcType=INTEGER},
       </if>
       <if test="userid != null" >
-        UserId = #{userid,jdbcType=INTEGER},
+        UserId = #{userid,jdbcType=VARCHAR},
       </if>
     </set>
-    where PetId = #{petid,jdbcType=INTEGER}
+    where PetId = #{petid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lt.pojo.Pet" >
     update pet
     set PetName = #{petname,jdbcType=VARCHAR},
-      PetTypeId = #{pettypeid,jdbcType=INTEGER},
-      PetAge = #{petage,jdbcType=INTEGER},
+      PetTypeId = #{pettypeid,jdbcType=VARCHAR},
+      PetAge = #{petage,jdbcType=VARCHAR},
       PetSex = #{petsex,jdbcType=INTEGER},
-      UserId = #{userid,jdbcType=INTEGER}
-    where PetId = #{petid,jdbcType=INTEGER}
+      UserId = #{userid,jdbcType=VARCHAR}
+    where PetId = #{petid,jdbcType=VARCHAR}
   </update>
 </mapper>

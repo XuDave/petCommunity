@@ -1,29 +1,29 @@
 package com.lt.pojo;
 
 public class Pet {
-    private Integer petid;
+    private String petid;
 
     private String petname;
 
-    private Integer pettypeid;
+    private String pettypeid;
     
     private String pettypename;
 
-    private Integer petage;
+    private String petage;
 
     private Integer petsex;
 
-    private Integer userid;
+    private String userid;
 
-    public Integer getPetid() {
-        return petid;
-    }
+    public String getPetid() {
+		return petid;
+	}
 
-    public void setPetid(Integer petid) {
-        this.petid = petid;
-    }
+	public void setPetid(String petid) {
+		this.petid = petid;
+	}
 
-    public String getPetname() {
+	public String getPetname() {
         return petname;
     }
 
@@ -31,23 +31,24 @@ public class Pet {
         this.petname = petname == null ? null : petname.trim();
     }
 
-    public Integer getPettypeid() {
-        return pettypeid;
-    }
+   
+    public String getPettypeid() {
+		return pettypeid;
+	}
 
-    public void setPettypeid(Integer pettypeid) {
-        this.pettypeid = pettypeid;
-    }
+	public void setPettypeid(String pettypeid) {
+		this.pettypeid = pettypeid;
+	}
 
-    public Integer getPetage() {
-        return petage;
-    }
+    public String getPetage() {
+		return petage;
+	}
 
-    public void setPetage(Integer petage) {
-        this.petage = petage;
-    }
+	public void setPetage(String petage) {
+		this.petage = petage;
+	}
 
-    public Integer getPetsex() {
+	public Integer getPetsex() {
         return petsex;
     }
 
@@ -55,13 +56,14 @@ public class Pet {
         this.petsex = petsex;
     }
 
-    public Integer getUserid() {
-        return userid;
-    }
+ 
+	public String getUserid() {
+		return userid;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
 	public String getPettypename() {
 		return pettypename;

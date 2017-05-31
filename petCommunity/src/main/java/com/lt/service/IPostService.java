@@ -19,7 +19,7 @@ public interface IPostService {
 	 * @param uid
 	 * @return
 	 */
-	Post selectPostsById(Integer pid);
+	Post selectPostsById(String pid);
 	
 	/**
 	 * 根据用户查询帖子
@@ -27,7 +27,7 @@ public interface IPostService {
 	 * @param uid
 	 * @return
 	 */
-	List<Post> selectPostsByUser(Integer uid);
+	List<Post> selectPostsByUser(String uid);
 	
 	/**
 	 * 新增帖子
@@ -52,7 +52,7 @@ public interface IPostService {
 	 * @return
 	 */
 	
-	int deletePost(Integer pid);
+	int deletePost(String pid);
 	
 	
 	/**
@@ -61,6 +61,6 @@ public interface IPostService {
 	 * @param uid
 	 * @return
 	 */
-	int deletePostByUser(Integer uid);
+	int deletePostByUser(String uid);
 
 }

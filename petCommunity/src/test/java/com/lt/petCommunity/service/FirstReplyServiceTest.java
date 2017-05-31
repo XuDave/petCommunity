@@ -23,7 +23,7 @@ public class FirstReplyServiceTest {
 	
 	@Test
 	public void testFindByPost(){
-		List<FirstReply> list = firstReplyService.selectFirstReplyByPostId(1);
+		List<FirstReply> list = firstReplyService.selectFirstReplyByPostId("1");
 		System.out.println("一级回复条数："+list.size());
 	}
 	

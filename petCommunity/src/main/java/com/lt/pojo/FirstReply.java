@@ -5,54 +5,54 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class FirstReply {
-    private Integer firstreplyid;
+	private String firstreplyid;
 
-    private String firstreplycontent;
+	private String firstreplycontent;
 
-    private Integer userid;
+	private Integer userid;
 
-    private Integer postid;
+	private Integer postid;
 
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date firstreplyupdatetime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date firstreplyupdatetime;
 
-    public Integer getFirstreplyid() {
-        return firstreplyid;
-    }
+	public String getFirstreplyid() {
+		return firstreplyid;
+	}
 
-    public void setFirstreplyid(Integer firstreplyid) {
-        this.firstreplyid = firstreplyid;
-    }
+	public void setFirstreplyid(String firstreplyid) {
+		this.firstreplyid = firstreplyid;
+	}
 
-    public String getFirstreplycontent() {
-        return firstreplycontent;
-    }
+	public String getFirstreplycontent() {
+		return firstreplycontent;
+	}
 
-    public void setFirstreplycontent(String firstreplycontent) {
-        this.firstreplycontent = firstreplycontent == null ? null : firstreplycontent.trim();
-    }
+	public void setFirstreplycontent(String firstreplycontent) {
+		this.firstreplycontent = firstreplycontent == null ? null : firstreplycontent.trim();
+	}
 
-    public Integer getUserid() {
-        return userid;
-    }
+	public Integer getUserid() {
+		return userid;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
 
-    public Integer getPostid() {
-        return postid;
-    }
+	public Integer getPostid() {
+		return postid;
+	}
 
-    public void setPostid(Integer postid) {
-        this.postid = postid;
-    }
+	public void setPostid(Integer postid) {
+		this.postid = postid;
+	}
 
-    public Date getFirstreplyupdatetime() {
-        return firstreplyupdatetime;
-    }
+	public Date getFirstreplyupdatetime() {
+		return firstreplyupdatetime;
+	}
 
-    public void setFirstreplyupdatetime(Date firstreplyupdatetime) {
-        this.firstreplyupdatetime = firstreplyupdatetime;
-    }
+	public void setFirstreplyupdatetime(Date firstreplyupdatetime) {
+		this.firstreplyupdatetime = firstreplyupdatetime;
+	}
 }

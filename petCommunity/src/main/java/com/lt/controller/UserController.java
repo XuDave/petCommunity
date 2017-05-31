@@ -48,7 +48,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/resetPsd")
-	public ModelAndView resetPsd(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView resetPsd(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		try {
@@ -75,7 +75,7 @@ public class UserController {
 	
 	@RequestMapping("/deleteUser")
 	@Transactional
-	public ModelAndView deleteUser(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView deleteUser(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		System.out.println(id);

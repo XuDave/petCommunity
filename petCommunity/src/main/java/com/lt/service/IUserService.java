@@ -19,7 +19,7 @@ public interface IUserService {
 	  * @param uid
 	  * @return
 	  */
-	 User selectUserById(Integer uid);
+	 User selectUserById(String uid);
 	 
      /**
       * 添加用户
@@ -43,5 +43,5 @@ public interface IUserService {
 	  * @param uid
 	  * @return
 	  */
-	 int deleteUser(Integer uid);
+	 int deleteUser(String uid);
 }

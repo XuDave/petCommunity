@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lt.dao.IPetTypeDao" >
   <resultMap id="BaseResultMap" type="com.lt.pojo.PetType" >
-    <id column="PetTypeId" property="pettypeid" jdbcType="INTEGER" />
+    <id column="PetTypeId" property="pettypeid" jdbcType="VARCHAR" />
     <result column="PetTypeContent" property="pettypecontent" jdbcType="VARCHAR" />
     <result column="PetTypeName" property="pettypename" jdbcType="VARCHAR" />
   </resultMap>
@@ -16,20 +16,20 @@
     from pet_type
   </select>
   
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from pet_type
-    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+    where PetTypeId = #{pettypeid,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from pet_type
-    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+    where PetTypeId = #{pettypeid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.lt.pojo.PetType" >
     insert into pet_type (PetTypeId, PetTypeContent, PetTypeName
       )
-    values (#{pettypeid,jdbcType=INTEGER}, #{pettypecontent,jdbcType=VARCHAR}, #{pettypename,jdbcType=VARCHAR}
+    values (#{pettypeid,jdbcType=VARCHAR}, #{pettypecontent,jdbcType=VARCHAR}, #{pettypename,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.lt.pojo.PetType" >
@@ -47,7 +47,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="pettypeid != null" >
-        #{pettypeid,jdbcType=INTEGER},
+        #{pettypeid,jdbcType=VARCHAR},
       </if>
       <if test="pettypecontent != null" >
         #{pettypecontent,jdbcType=VARCHAR},
@@ -67,12 +67,12 @@
         PetTypeName = #{pettypename,jdbcType=VARCHAR},
       </if>
     </set>
-    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+    where PetTypeId = #{pettypeid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lt.pojo.PetType" >
     update pet_type
     set PetTypeContent = #{pettypecontent,jdbcType=VARCHAR},
       PetTypeName = #{pettypename,jdbcType=VARCHAR}
-    where PetTypeId = #{pettypeid,jdbcType=INTEGER}
+    where PetTypeId = #{pettypeid,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -18,7 +18,7 @@ public interface IFirstReplyService {
      * @param fid
      * @return
      */
-    FirstReply selectFirstReply(Integer fid);
+    FirstReply selectFirstReply(String fid);
     
     /**
      * 根据帖子ID查询一级回复
@@ -26,7 +26,7 @@ public interface IFirstReplyService {
      * @param pId
      * @return
      */
-    List<FirstReply> selectFirstReplyByPostId(Integer pId);
+    List<FirstReply> selectFirstReplyByPostId(String pId);
     
     /**
      * 根据用户ID查询一级回复
@@ -34,7 +34,7 @@ public interface IFirstReplyService {
      * @param uId
      * @return
      */
-    List<FirstReply> selectFirstReplyByUserId(Integer uId);
+    List<FirstReply> selectFirstReplyByUserId(String uId);
     
     /**
      * 添加一级回复
@@ -58,7 +58,7 @@ public interface IFirstReplyService {
      * @param fid
      * @return
      */
-    int deleteFirstReply(Integer fid);
+    int deleteFirstReply(String fid);
     
     /**
      * 根据帖子编号删除一级回复
@@ -66,7 +66,7 @@ public interface IFirstReplyService {
      * @param pId
      * @return
      */
-    int deleteFirstReplyByPostId(Integer pId);
+    int deleteFirstReplyByPostId(String pId);
     
     /**
      * 根据用户编号删除一级回复
@@ -74,5 +74,5 @@ public interface IFirstReplyService {
      * @param uid
      * @return
      */
-    int deleteFirstReplyByUserId(Integer uid);
+    int deleteFirstReplyByUserId(String uid);
 }

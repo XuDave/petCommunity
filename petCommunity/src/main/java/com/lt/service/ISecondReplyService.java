@@ -18,7 +18,7 @@ public interface ISecondReplyService {
 	 * @param sId
 	 * @return
 	 */
-	SecondReply selectSecondReplyById(Integer sId);
+	SecondReply selectSecondReplyById(String sId);
 	
 	/**
 	 * 根据一级回复编号查询相应的二级回复
@@ -26,7 +26,7 @@ public interface ISecondReplyService {
 	 * @param pId
 	 * @return
 	 */
-	List<SecondReply> selectSecondReplyByFirstReplyId(Integer fId);
+	List<SecondReply> selectSecondReplyByFirstReplyId(String fId);
 	
 	/**
 	 * 根据用户编号查询相应的二级回复
@@ -34,7 +34,7 @@ public interface ISecondReplyService {
 	 * @param uId
 	 * @return
 	 */
-	List<SecondReply> selectSecondReplyByUserId(Integer uId);
+	List<SecondReply> selectSecondReplyByUserId(String uId);
 	
 	/**
 	 * 添加二级回复
@@ -58,7 +58,7 @@ public interface ISecondReplyService {
 	 * @param sId
 	 * @return
 	 */
-    int deleteSecondReply(Integer sId);
+    int deleteSecondReply(String sId);
     
     /**
      * 根据一级回复删除二级回复
@@ -66,7 +66,7 @@ public interface ISecondReplyService {
      * @param fId
      * @return
      */
-    int deleteSecondReplyByFirstReply(Integer fId);
+    int deleteSecondReplyByFirstReply(String fId);
     
     /**
      * 根据用户编号删除二级回复
@@ -74,5 +74,5 @@ public interface ISecondReplyService {
      * @param uId
      * @return
      */
-    int deleteSecondReplyByUser(Integer uId);
+    int deleteSecondReplyByUser(String uId);
 }

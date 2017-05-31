@@ -21,7 +21,7 @@ public class CommodityServiceImpl implements ICommodityService {
 	}
 
 	@Override
-	public Commodity selectCommodityById(Integer cid) {
+	public Commodity selectCommodityById(String cid) {
 		return commodityDao.selectByPrimaryKey(cid);
 	}
 
@@ -38,7 +38,7 @@ public class CommodityServiceImpl implements ICommodityService {
 	}
 
 	@Override
-	public int deleteCommodity(Integer cid) {
+	public int deleteCommodity(String cid) {
 		int i = commodityDao.deleteByPrimaryKey(cid);
 		return i;
 	}

@@ -8,19 +8,19 @@ public interface IPetDao {
 	
 	List<Pet> selectAllPets();
 	
-	List<Pet> selectPetsByUser(Integer userId);
+	List<Pet> selectPetsByUser(String userId);
 	
-	List<Pet> selectPetsByType(Integer typeId);
+	List<Pet> selectPetsByType(String typeId);
 	
-    int deleteByPrimaryKey(Integer petid);
+    int deleteByPrimaryKey(String petid);
     
-    int deleteByUserId(Integer userId);
+    int deleteByUserId(String userId);
 
     int insert(Pet record);
 
     int insertSelective(Pet record);
 
-    Pet selectByPrimaryKey(Integer petid);
+    Pet selectByPrimaryKey(String petid);
 
     int updateByPrimaryKeySelective(Pet record);
 

@@ -7,13 +7,13 @@ import com.lt.pojo.Commodity;
 public interface ICommodityDao {
 	List<Commodity> selectAllCommodities();
 	
-    int deleteByPrimaryKey(Integer commodityid);
+    int deleteByPrimaryKey(String commodityid);
 
     int insert(Commodity record);
 
     int insertSelective(Commodity record);
 
-    Commodity selectByPrimaryKey(Integer commodityid);
+    Commodity selectByPrimaryKey(String commodityid);
 
     int updateByPrimaryKeySelective(Commodity record);
 

@@ -18,7 +18,7 @@ public interface IPetService {
 	 * @param petId
 	 * @return
 	 */
-	Pet selectPetById(Integer petId);
+	Pet selectPetById(String petId);
 	
 	/**
 	 * 根据用户编号查询宠物信息
@@ -26,7 +26,7 @@ public interface IPetService {
 	 * @param uId
 	 * @return
 	 */
-	List<Pet> selectPetByUserId(Integer uId);
+	List<Pet> selectPetByUserId(String uId);
 	
 	/**
 	 * 添加宠物信息
@@ -49,7 +49,7 @@ public interface IPetService {
 	 * @param petId
 	 * @return
 	 */
-	int deletePet(Integer petId);
+	int deletePet(String petId);
 	
 	/**
 	 * 根据用户编号删除宠物信息
@@ -57,7 +57,7 @@ public interface IPetService {
 	 * @param uId
 	 * @return
 	 */
-	int deletePetByUserId(Integer uId);
+	int deletePetByUserId(String uId);
 	
     
 }

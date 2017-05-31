@@ -8,21 +8,21 @@ public interface IFirstReplyDao {
 	
 	List<FirstReply> selectAllFirstReplies();
 	
-	List<FirstReply> selectAllFirstRepliesByPostId(Integer postid);
+	List<FirstReply> selectAllFirstRepliesByPostId(String postid);
 	
-	List<FirstReply> selectAllFirstRepliesByUserId(Integer userid);
+	List<FirstReply> selectAllFirstRepliesByUserId(String userid);
 	
-    int deleteByPrimaryKey(Integer firstreplyid);
+    int deleteByPrimaryKey(String firstreplyid);
     
-    int deleteByPostId(Integer postid);
+    int deleteByPostId(String postid);
     
-    int deleteByUserId(Integer userid);
+    int deleteByUserId(String userid);
 
     int insert(FirstReply record);
 
     int insertSelective(FirstReply record);
 
-    FirstReply selectByPrimaryKey(Integer firstreplyid);
+    FirstReply selectByPrimaryKey(String firstreplyid);
 
     int updateByPrimaryKeySelective(FirstReply record);
 

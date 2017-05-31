@@ -29,7 +29,7 @@ public class PetController {
 	private Logger logger = Logger.getLogger(PetController.class);
 
 	@RequestMapping("/findPetByUser")
-	public ModelAndView findPetByPost(@RequestParam("id") Integer id, ModelMap model) {
+	public ModelAndView findPetByPost(@RequestParam("id") String id, ModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		List<Pet> petList = new ArrayList<Pet>();
 		List<Pet> pets = petService.selectPetByUserId(id);
@@ -43,7 +43,7 @@ public class PetController {
 	}
 
 	@RequestMapping("/deletePet")
-	public ModelAndView deletePet(Integer id, RedirectAttributesModelMap model) {
+	public ModelAndView deletePet(String id, RedirectAttributesModelMap model) {
 		ModelAndView mv = new ModelAndView();
 		ProcessResult processResult = new ProcessResult();
 		Pet pet = petService.selectPetById(id);

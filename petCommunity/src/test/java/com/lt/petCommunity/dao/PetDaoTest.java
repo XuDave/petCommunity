@@ -20,7 +20,7 @@ public class PetDaoTest {
 	
 	@Test
 	public void testFindPetByUser(){
-		List<Pet> petList = petDao.selectPetsByUser(1);
+		List<Pet> petList = petDao.selectPetsByUser("1");
 		System.out.println("宠物个数:"+petList.size());
 	}
 }

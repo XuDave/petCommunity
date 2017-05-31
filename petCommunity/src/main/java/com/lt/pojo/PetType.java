@@ -1,21 +1,21 @@
 package com.lt.pojo;
 
 public class PetType {
-    private Integer pettypeid;
+    private String pettypeid;
 
     private String pettypecontent;
 
     private String pettypename;
 
-    public Integer getPettypeid() {
-        return pettypeid;
-    }
+    public String getPettypeid() {
+		return pettypeid;
+	}
 
-    public void setPettypeid(Integer pettypeid) {
-        this.pettypeid = pettypeid;
-    }
+	public void setPettypeid(String pettypeid) {
+		this.pettypeid = pettypeid;
+	}
 
-    public String getPettypecontent() {
+	public String getPettypecontent() {
         return pettypecontent;
     }
 

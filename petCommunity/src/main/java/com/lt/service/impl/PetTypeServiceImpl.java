@@ -21,7 +21,7 @@ public class PetTypeServiceImpl implements IPetTypeService {
 	}
 
 	@Override
-	public PetType selectPetType(Integer tId) {
+	public PetType selectPetType(String tId) {
 		return petTypeDao.selectByPrimaryKey(tId);
 	}
 
@@ -38,7 +38,7 @@ public class PetTypeServiceImpl implements IPetTypeService {
 	}
 
 	@Override
-	public int deletePetType(Integer tId) {
+	public int deletePetType(String tId) {
 	    int i = petTypeDao.deleteByPrimaryKey(tId);
 		return i;
 	}

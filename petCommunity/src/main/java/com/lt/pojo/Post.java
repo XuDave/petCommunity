@@ -5,9 +5,9 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Post {
-    private Integer postid;
+    private String postid;
 
-    private Integer userid;
+    private String userid;
 
     private String posttitle;
 
@@ -18,23 +18,23 @@ public class Post {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date postupdatetime;
 
-    public Integer getPostid() {
-        return postid;
-    }
+    public String getPostid() {
+		return postid;
+	}
 
-    public void setPostid(Integer postid) {
-        this.postid = postid;
-    }
+	public void setPostid(String postid) {
+		this.postid = postid;
+	}
 
-    public Integer getUserid() {
-        return userid;
-    }
+	public String getUserid() {
+		return userid;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
-    public String getPosttitle() {
+	public String getPosttitle() {
         return posttitle;
     }
 

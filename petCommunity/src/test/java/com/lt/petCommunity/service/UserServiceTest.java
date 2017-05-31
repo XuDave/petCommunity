@@ -17,7 +17,7 @@ public class UserServiceTest {
 
 	@Test
 	public void deleteUser() {
-		int i = userService.deleteUser(8);
+		int i = userService.deleteUser("8");
 		System.out.println("成功删除" + i + "条用户信息");
 	}
 

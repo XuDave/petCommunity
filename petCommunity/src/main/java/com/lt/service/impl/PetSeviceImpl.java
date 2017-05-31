@@ -21,12 +21,12 @@ public class PetSeviceImpl implements IPetService {
 	}
 
 	@Override
-	public Pet selectPetById(Integer petId) {
+	public Pet selectPetById(String petId) {
 		return petDao.selectByPrimaryKey(petId);
 	}
 
 	@Override
-	public List<Pet> selectPetByUserId(Integer uId) {
+	public List<Pet> selectPetByUserId(String uId) {
 		return petDao.selectPetsByUser(uId);
 	}
 
@@ -41,12 +41,12 @@ public class PetSeviceImpl implements IPetService {
 	}
 
 	@Override
-	public int deletePet(Integer petId) {
+	public int deletePet(String petId) {
 		return petDao.deleteByPrimaryKey(petId);
 	}
 
 	@Override
-	public int deletePetByUserId(Integer uId) {
+	public int deletePetByUserId(String uId) {
 		return petDao.deleteByUserId(uId);
 	}
 

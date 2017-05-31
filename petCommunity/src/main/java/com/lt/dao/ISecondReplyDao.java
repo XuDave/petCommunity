@@ -8,23 +8,23 @@ public interface ISecondReplyDao {
 	
 	List<SecondReply> selectAllSecondReplies();
 	
-	List<SecondReply> selectAllSecondRepliesByFirstReply(Integer firstreplyid);
+	List<SecondReply> selectAllSecondRepliesByFirstReply(String firstreplyid);
 	
-	List<SecondReply> selectAllSecondRepliesByUserId(Integer userid);
+	List<SecondReply> selectAllSecondRepliesByUserId(String userid);
 	
-    int deleteByPrimaryKey(Integer secondreplyid);
+    int deleteByPrimaryKey(String secondreplyid);
     
-    int deleteByUserId(Integer userid);
+    int deleteByUserId(String userid);
 
     int insert(SecondReply record);
 
     int insertSelective(SecondReply record);
 
-    SecondReply selectByPrimaryKey(Integer secondreplyid);
+    SecondReply selectByPrimaryKey(String secondreplyid);
 
     int updateByPrimaryKeySelective(SecondReply record);
 
     int updateByPrimaryKey(SecondReply record);
     
-    int deleteByFirstReply(Integer firstreplyid);
+    int deleteByFirstReply(String firstreplyid);
 }

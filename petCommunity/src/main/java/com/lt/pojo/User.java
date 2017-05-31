@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class User {
-    private Integer userid;
+    private String userid;
 
     private String username;
 
@@ -22,15 +22,15 @@ public class User {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date userupdatetime;
 
-    public Integer getUserid() {
-        return userid;
-    }
+    public String getUserid() {
+		return userid;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
-    public String getUsername() {
+	public String getUsername() {
         return username;
     }
 
