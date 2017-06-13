@@ -33,13 +33,13 @@
     delete from admin
     where AdminID = #{adminid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lt.pojo.Admin" >
+  <insert id="insert" parameterType="com.lt.pojo.Admin"  useGeneratedKeys="true" keyProperty="adminid">
     insert into admin (AdminID, AdminName, Password
       )
     values (#{adminid,jdbcType=INTEGER}, #{adminname,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lt.pojo.Admin" >
+  <insert id="insertSelective" parameterType="com.lt.pojo.Admin"  useGeneratedKeys="true" keyProperty="adminid">
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="adminid != null" >

@@ -23,4 +23,13 @@ public class AdminDaoTest {
 		List<Admin> adminList = adminDao.selectAllAdmins();
 		System.out.println(adminList.size());
 	}
+	
+	//@Test
+	public void testInsertAdmin(){
+		Admin admin = new Admin();
+		admin.setAdminname("测试");
+		admin.setPassword("123");
+		adminDao.insert(admin);
+		//System.out.println("新添加的ID:"+admin.getAdminid());
+	}
 }
